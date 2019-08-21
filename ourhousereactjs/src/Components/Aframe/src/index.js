@@ -1,11 +1,9 @@
 import "aframe";
-import "aframe-animation-component";
 import "aframe-particle-system-component";
 import "babel-polyfill";
 import { Entity, Scene } from "aframe-react";
 import React from "react";
-import ReactDOM from "react-dom";
-import room2 from "../StaticAssets/room2.jpg";
+import room2 from "../StaticAssets/Room2.jpg";
 
 class Aframe extends React.Component {
   constructor(props) {
@@ -158,16 +156,7 @@ class Aframe extends React.Component {
         />
 
         <Entity primitive="a-camera">
-          <Entity
-            primitive="a-cursor"
-            animation__click={{
-              property: "scale",
-              startEvents: "click",
-              from: "0.1 0.1 0.1",
-              to: "1 1 1",
-              dur: 150
-            }}
-          />
+          <Entity primitive="a-cursor" />
         </Entity>
       </Scene>
     );
@@ -175,4 +164,3 @@ class Aframe extends React.Component {
 }
 export default Aframe;
 
-ReactDOM.render(<Aframe />, document.querySelector("#sceneContainer"));
