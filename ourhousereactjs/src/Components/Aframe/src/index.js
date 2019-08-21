@@ -10,7 +10,6 @@ class Aframe extends React.Component {
     super(props);
     this.state = {
       color: "red",
-      count: 0,
       opacity: 0.05,
       selectedSquare: "Choose one"
     };

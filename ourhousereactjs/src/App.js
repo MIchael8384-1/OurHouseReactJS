@@ -1,18 +1,24 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 import { Router } from "@reach/router";
 import Aframe from "./Components/Aframe/src/index";
-import HomeHeader from "./Components/Homepage/HomeHeader";
+import HomePage from "./Components/Homepage/HomePage";
 
-const App = () => {
-  return (
-    <div className="App">
-      <Router>
-        <HomeHeader path="/home" />
-        <Aframe path="/360" />
-      </Router>
-    </div>
-  );
-};
+class App extends Component {
+  state = {
+    userID: 1
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <HomePage path="/" />
+          <Aframe path="/360" userID={this.state.userID} />
+        </Router>
+      </div>
+    );
+  }
+}
 
 export default App;
