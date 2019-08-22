@@ -1,15 +1,16 @@
 import React from "react";
-import fire from "../config/fire";
+import fire, { db } from "../config/fire";
 
 class Login extends React.Component {
   state = {
     email: "",
     password: "",
+    userName: "",
     err: null
   };
 
   render() {
-    const { email, password } = this.state;
+    const { email, password, userName } = this.state;
     return (
       <>
         <div>Email</div>
@@ -29,6 +30,14 @@ class Login extends React.Component {
           value={password}
         />
         <div>
+          <div>Username</div>
+          <input
+            id="userName"
+            placeholder="Enter your username..."
+            type="text"
+            onChange={this.onChange}
+            value={userName}
+          />
           <button onClick={this.logIn}>Login </button>
           <button onClick={this.signUp}>Sign Up</button>
         </div>
@@ -47,7 +56,6 @@ class Login extends React.Component {
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(console.log(email)) // at this point you can access the email address via console
       .then(this.setState({ email: "", password: "" }))
       .catch(err => {
         this.setState({ err });
@@ -55,12 +63,17 @@ class Login extends React.Component {
   };
 
   signUp = e => {
-    const { email, password } = this.state;
+    const { email, password, userName } = this.state;
     e.preventDefault();
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(this.setState({ email: "", password: "" }))
+      .then(({ user }) => {
+        db.collection("Users")
+          .doc(user.uid)
+          .set({ username: userName });
+      })
+      .then(this.setState({ email: "", password: "", userName: "" }))
       .catch(err => {
         this.setState({ err });
       });

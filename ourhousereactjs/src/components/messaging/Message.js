@@ -4,9 +4,11 @@ const Message = ({ message, userName, createdAt }) => {
   const postedDate = new Date(createdAt).toString();
   return (
     <div className="box">
-      <h2>{message}</h2>
-      <h4>{userName}</h4>
-      <h4>{postedDate}</h4>
+      <ol>
+        <h6>{message}</h6>
+        <h6>{userName}</h6>
+        <h6>{postedDate}</h6>
+      </ol>
     </div>
   );
 };

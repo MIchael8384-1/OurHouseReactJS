@@ -1,6 +1,6 @@
 import React from "react";
 import Message from "./Message";
-import { db } from "../config/fire";
+import fire, { db } from "../config/fire";
 
 class Form extends React.Component {
   state = {
@@ -46,6 +46,7 @@ class Form extends React.Component {
   onClick = e => {
     const { userName, msg, createdAt } = this.state;
     e.preventDefault();
+    fire.auth();
     db.collection("chatrooms")
       .doc("1 Federation House")
       .collection("messages")
