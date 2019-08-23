@@ -5,7 +5,7 @@ const HomeHeader = () => {
   return (
     <>
       <h1>Hello world</h1>
-      <Link to="/360">
+      <Link to="/maintenance">
         <h2>You gotta problem?</h2>
       </Link>
     </>

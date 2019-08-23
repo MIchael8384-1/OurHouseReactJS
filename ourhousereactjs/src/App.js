@@ -3,10 +3,11 @@ import "./App.css";
 import { Router } from "@reach/router";
 import Aframe from "./Components/Aframe/src/index";
 import HomePage from "./Components/Homepage/HomePage";
+import MaintenancePage from "./Components/Maintenance/MaintenancePage";
 
 class App extends Component {
   state = {
-    userID: 1
+    username: 'NA'
   };
 
   render() {
@@ -14,7 +15,8 @@ class App extends Component {
       <div className="App">
         <Router>
           <HomePage path="/" />
-          <Aframe path="/360" userID={this.state.userID} />
+          <Aframe path="/360" userID={this.state.username} />
+          <MaintenancePage path="/maintenance" />
         </Router>
       </div>
     );

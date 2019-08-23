@@ -16,10 +16,7 @@ class Aframe extends React.Component {
   }
 
   handleClick = event => {
-    this.setState({
-      selectedSquare: event.target.id,
-      color: event.target.components.material.attrValue.color
-    });
+    this.props.postNewIssue(event.target.id);
   };
   handleHover = () => {
     this.setState({
@@ -162,4 +159,3 @@ class Aframe extends React.Component {
   }
 }
 export default Aframe;
-
