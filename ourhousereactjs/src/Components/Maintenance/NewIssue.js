@@ -3,7 +3,8 @@ import Aframe from "../Aframe/src/index.js";
 
 class NewIssue extends Component {
   state = {
-    selectedRoom: null
+    selectedRoom: null,
+    description: ""
   };
 
   render() {
@@ -24,14 +25,16 @@ class NewIssue extends Component {
             })}
             <br />
             <h3>Issue: </h3>
-            <input type="text" />
+            <input type="text" required />
             <br />
             <h3>Description: </h3>
             <textarea
-              rows='10'
-              cols='40'
-              name='description'
-              onChange
+              rows="10"
+              cols="40"
+              name="description"
+              onChange={this.handleChange}
+              value={this.state.description}
+              required
             />
           </form>
         </div>
@@ -42,6 +45,10 @@ class NewIssue extends Component {
   handleSubmit = ({ target: { value } }) => {
     //MAKE A GET REQUEST TO DB FOR PICTURE
     this.setState({ selectedRoom: value });
+  };
+
+  handleChange = ({ target: { name, value } }) => {
+    this.setState({ [name]: value });
   };
 
   postNewIssue = location => {
