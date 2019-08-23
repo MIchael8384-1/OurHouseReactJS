@@ -7,12 +7,21 @@ import fire from "./components/config/fire";
 class App extends React.Component {
   state = {
     user: null,
-    email: ""
+    email: "",
+    username: ""
   };
 
   render() {
-    const { user } = this.state;
-    return <>{user ? <Home /> : <Login />}</>;
+    const { user, username } = this.state;
+    return (
+      <>
+        {user ? (
+          <Home username={username} />
+        ) : (
+          <Login setStateWithUsername={this.setStateWithUsername} />
+        )}
+      </>
+    );
   }
 
   componentDidMount() {
@@ -24,6 +33,10 @@ class App extends React.Component {
       user ? this.setState({ user }) : this.setState({ user: null });
     });
   }
+
+  setStateWithUsername = username => {
+    this.setState({ username });
+  };
 }
 
 export default App;

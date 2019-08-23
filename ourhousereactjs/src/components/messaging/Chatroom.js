@@ -2,10 +2,9 @@ import React from "react";
 import Message from "./Message";
 import fire, { db } from "../config/fire";
 
-class Form extends React.Component {
+class Chatroom extends React.Component {
   state = {
     msg: "",
-    userName: "KateBryan",
     createdAt: "",
     messageData: null,
     err: null
@@ -13,15 +12,16 @@ class Form extends React.Component {
 
   render() {
     const { msg, messageData } = this.state;
+    const { username } = this.props;
     return (
       <>
         {messageData
           ? messageData.map(data => (
               <Message
                 message={data.msg}
-                userName={data.userName}
                 createdAt={data.createdAt}
                 key={data.createdAt}
+                username={username}
               />
             ))
           : "Loading..."}
@@ -44,14 +44,16 @@ class Form extends React.Component {
   };
 
   onClick = e => {
-    const { userName, msg, createdAt } = this.state;
+    const { msg, createdAt } = this.state;
+    const { username } = this.props;
     e.preventDefault();
     fire.auth();
     db.collection("chatrooms")
       .doc("1 Federation House")
+      // currently we don't have a back-end so can't query based on address
       .collection("messages")
-      .add({ userName, msg, createdAt })
-      .then(this.setState({ userName: "", msg: "", createdAt: "" }))
+      .add({ username, msg, createdAt })
+      .then(this.setState({ msg: "", createdAt: "" }))
       .catch(err => this.setState({ err }));
   };
 
@@ -72,4 +74,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default Chatroom;

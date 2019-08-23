@@ -51,12 +51,23 @@ class Login extends React.Component {
   };
 
   logIn = e => {
-    const { email, password } = this.state;
+    const { email, password, userName } = this.state;
     e.preventDefault();
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(this.setState({ email: "", password: "" }))
+      .then(({ user: { uid } }) => {
+        // speak to beautiful soup
+        db.collection("Users")
+          .where("user_id", "==", uid)
+          .where("username", "==", userName)
+          .get()
+          .then(querySnapshot => {
+            const data = querySnapshot.docs.map(doc => doc.data());
+            this.props.setStateWithUsername(data[0].username);
+          });
+      })
       .catch(err => {
         this.setState({ err });
       });
@@ -68,10 +79,11 @@ class Login extends React.Component {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(({ user }) => {
-        db.collection("Users")
-          .doc(user.uid)
-          .set({ username: userName });
+      .then(({ user: { uid } }) => {
+        db.collection("Users").add({
+          username: userName,
+          user_id: uid
+        });
       })
       .then(this.setState({ email: "", password: "", userName: "" }))
       .catch(err => {
