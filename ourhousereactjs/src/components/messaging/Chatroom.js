@@ -1,6 +1,7 @@
 import React from "react";
 import Message from "./Message";
 import fire, { db } from "../config/fire";
+import ls from "local-storage";
 
 class Chatroom extends React.Component {
   state = {
@@ -12,7 +13,6 @@ class Chatroom extends React.Component {
 
   render() {
     const { msg, messageData } = this.state;
-    const { username } = this.props;
     return (
       <>
         {messageData
@@ -21,7 +21,7 @@ class Chatroom extends React.Component {
                 message={data.msg}
                 createdAt={data.createdAt}
                 key={data.createdAt}
-                username={username}
+                username={data.username}
               />
             ))
           : "Loading..."}
@@ -41,18 +41,25 @@ class Chatroom extends React.Component {
   onChange = e => {
     const { value } = e.target;
     this.setState({ msg: value, createdAt: Date.now() });
+    db.collection("chatrooms")
+      .doc("1 Federation House")
+      .collection("messages")
+      .onSnapshot(QuerySnapshot => {
+        const data = QuerySnapshot.docs.map(doc => doc.data());
+        this.setState({ messageData: data });
+      });
   };
 
   onClick = e => {
     const { msg, createdAt } = this.state;
-    const { username } = this.props;
+    let currentUser = window.localStorage.getItem("currentUsername");
+    currentUser = JSON.parse(currentUser);
     e.preventDefault();
     fire.auth();
     db.collection("chatrooms")
       .doc("1 Federation House")
-      // currently we don't have a back-end so can't query based on address
       .collection("messages")
-      .add({ username, msg, createdAt })
+      .add({ username: currentUser, msg, createdAt })
       .then(this.setState({ msg: "", createdAt: "" }))
       .catch(err => this.setState({ err }));
   };
@@ -61,6 +68,7 @@ class Chatroom extends React.Component {
     db.collection("chatrooms")
       .doc("1 Federation House")
       .collection("messages")
+      .orderBy("createdAt", "asc")
       .get()
       .then(QuerySnapshot => {
         const data = QuerySnapshot.docs.map(doc => doc.data());

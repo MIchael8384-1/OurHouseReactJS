@@ -1,6 +1,7 @@
 import React from "react";
 import fire from "../config/fire";
 import Chatroom from "./Chatroom";
+import ls from "local-storage";
 
 class Home extends React.Component {
   render() {
@@ -17,6 +18,7 @@ class Home extends React.Component {
 
   logOut = e => {
     fire.auth().signOut();
+    ls.clear();
   };
 }
 

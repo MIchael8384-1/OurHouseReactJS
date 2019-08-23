@@ -89,6 +89,7 @@ class Login extends React.Component {
       .catch(err => {
         this.setState({ err });
       });
+    // when you sign up, the username isn't going into local storage
   };
 }
 

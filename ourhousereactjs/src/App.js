@@ -3,6 +3,7 @@ import "./App.css";
 import Login from "./components/messaging/Login";
 import Home from "./components/messaging/Home";
 import fire from "./components/config/fire";
+import ls from "local-storage";
 
 class App extends React.Component {
   state = {
@@ -26,6 +27,7 @@ class App extends React.Component {
 
   componentDidMount() {
     this.authListener();
+    ls.get("currentUsername");
   }
 
   authListener() {
@@ -36,6 +38,7 @@ class App extends React.Component {
 
   setStateWithUsername = username => {
     this.setState({ username });
+    ls.set("currentUsername", username);
   };
 }
 
