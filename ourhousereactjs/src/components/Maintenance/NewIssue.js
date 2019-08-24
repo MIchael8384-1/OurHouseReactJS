@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Aframe from "../Aframe/src/index.js";
+import Aframe from "../Aframe/src/index.js.js";
 
 class NewIssue extends Component {
   state = {
