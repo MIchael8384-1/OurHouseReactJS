@@ -4,28 +4,43 @@ import Aframe from "../Aframe/src/index.js";
 class NewIssue extends Component {
   state = {
     selectedRoom: null,
-    description: ""
+    issue: "",
+    description: "",
+    selectedArea: "None",
+    launch360: false
   };
 
   render() {
     const { rooms } = this.props;
-    const { selectedRoom } = this.state;
+    const { issue, description, launch360 } = this.state;
     return (
       <>
-        {selectedRoom ? <Aframe postNewIssue={this.postNewIssue} /> : null}
+        {launch360 ? <Aframe postNewIssue={this.postNewIssue} /> : null}
         <div>
-          <form onSubmit={this.handleChange}>
+          <form onSubmit={this.handleSubmit}>
             <h3>Room: </h3>
             {rooms.map(room => {
               return (
-                <>
-                  <input type="radio" name="room" value={room} /> {room}
-                </>
+                <div key={room.room_id}>
+                  <input
+                    type="radio"
+                    name="selectedRoom"
+                    value={room.name}
+                    onChange={this.handleChange}
+                  />{" "}
+                  {room.name}
+                </div>
               );
             })}
             <br />
             <h3>Issue: </h3>
-            <input type="text" required />
+            <input
+              type="text"
+              required
+              name="issue"
+              onChange={this.handleChange}
+              value={issue}
+            />
             <br />
             <h3>Description: </h3>
             <textarea
@@ -33,29 +48,54 @@ class NewIssue extends Component {
               cols="40"
               name="description"
               onChange={this.handleChange}
-              value={this.state.description}
+              value={description}
               required
             />
+            <h3>Select area</h3>
+            <input
+              type="button"
+              value="Choose area"
+              onClick={this.launch360}
+              name="selectedRoom"
+              disabled={this.state.selectedArea !== "None"}
+            />
+            <p>Currently selected area: {this.state.selectedArea}</p>
+            <input type="submit" value="Submit" />
           </form>
         </div>
       </>
     );
   }
 
-  handleSubmit = ({ target: { value } }) => {
-    //MAKE A GET REQUEST TO DB FOR PICTURE
-    this.setState({ selectedRoom: value });
+  roomRequest = event => {
+    console.log(event.target);
   };
 
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
+    // if (name === 'selectedRoom') Make GET request for room image
   };
 
   postNewIssue = location => {
-    //MAKE A POST REQUEST TO THE DB WITH A NEW ISSUE:
-    //WITH KEYS OF: LOCATION, ROOM, DESC, ISSUE
-    console.log(location);
-    this.setState({ selectedRoom: null });
+    this.setState({
+      launch360: false,
+      selectedArea: location
+    });
+  };
+
+  launch360 = () => {
+    this.setState({ launch360: true });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log(
+      this.state.issue,
+      this.state.description,
+      this.state.selectedArea,
+      this.state.selectedRoom
+    );
+    //Make a POST request to post new issue with keys above
   };
 }
 
