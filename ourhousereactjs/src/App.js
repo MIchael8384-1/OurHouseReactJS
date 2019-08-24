@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import { Router } from "@reach/router";
-import Aframe from "./components/Aframe/src/index";
+import Aframe from "./components/Aframe/src/index.js";
 import HomePage from "./components/Homepage/HomePage";
 import MaintenancePage from "./components/Maintenance/MaintenancePage";
 
