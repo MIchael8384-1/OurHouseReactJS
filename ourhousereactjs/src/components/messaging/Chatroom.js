@@ -1,7 +1,6 @@
 import React from "react";
 import Message from "./Message";
 import fire, { db } from "../config/fire";
-import ls from "local-storage";
 
 class Chatroom extends React.Component {
   state = {

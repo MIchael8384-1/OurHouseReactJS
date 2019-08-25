@@ -1,7 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
 import fire, { db } from "../config/fire";
 
-class Login extends React.Component {
+class Login extends Component {
   state = {
     email: "",
     password: "",

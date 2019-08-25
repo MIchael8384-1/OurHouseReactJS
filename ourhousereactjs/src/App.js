@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import "./App.css";
 import Login from "./components/messaging/Login";
@@ -6,8 +5,6 @@ import Home from "./components/messaging/Home";
 import fire from "./components/config/fire";
 import ls from "local-storage";
 import { Router } from "@reach/router";
-import Aframe from "./components/Aframe/src/index.js";
-import HomePage from "./components/Homepage/HomePage";
 import MaintenancePage from "./components/Maintenance/MaintenancePage";
 
 class App extends Component {
@@ -21,16 +18,14 @@ class App extends Component {
     const { user, username } = this.state;
     return (
       <>
-      <Router>
-        {user ? (
-          <Home username={username} />
-        ) : (
-          <Login setStateWithUsername={this.setStateWithUsername} />
-        )}
- <HomePage path="/" />
-          <Aframe path="/360" userID={username} />
+        <Router>
+          {user ? (
+            <Home path="/" username={username} />
+          ) : (
+            <Login path="/" setStateWithUsername={this.setStateWithUsername} />
+          )}
           <MaintenancePage path="/maintenance" />
-</Router>
+        </Router>
       </>
     );
   }
@@ -50,7 +45,6 @@ class App extends Component {
     this.setState({ username });
     ls.set("currentUsername", username);
   };
-
 }
 
 export default App;

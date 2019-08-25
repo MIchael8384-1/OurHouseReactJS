@@ -22,7 +22,6 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-
   "keywords": [
     "aframe",
     "react",
