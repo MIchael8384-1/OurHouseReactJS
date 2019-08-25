@@ -7,6 +7,7 @@ import lockicon from "../../media/lock.png";
 import nameicon from "../../media/name.png";
 
 const Input = styled.input`
+  padding-left: 35px;
   border: 1px solid rgba(237, 49, 146, 1);
   border-radius: 30px;
   font-size: 12px;
@@ -20,6 +21,7 @@ const Input = styled.input`
 `;
 
 const Input2 = styled.input`
+  padding-left: 35px;
   border: 1px solid rgba(237, 49, 146, 1);
   border-radius: 30px;
   font-size: 12px;
@@ -33,6 +35,7 @@ const Input2 = styled.input`
 `;
 
 const Input3 = styled.input`
+  padding-left: 35px;
   border: 1px solid rgba(237, 49, 146, 1);
   border-radius: 30px;
   font-size: 12px;
@@ -50,7 +53,7 @@ const Button = styled.button`
   border: none;
   color: white;
   background-color: rgba(237, 49, 146, 1);
-  width: 24em;
+  width: 27em;
   height: 3em;
   font-size: 12px;
 `;
@@ -72,21 +75,21 @@ class Login extends Component {
         <div className="SignupFormContainer">
           <Input
             id="email"
-            placeholder="         Enter your email address..."
+            placeholder="Enter your email address..."
             type="email"
             onChange={this.onChange}
             value={email}
           />
           <Input2
             id="password"
-            placeholder="         Enter your password..."
+            placeholder="Enter your password..."
             type="text"
             onChange={this.onChange}
             value={password}
           />
           <Input3
-            id="username"
-            placeholder="         Enter your username"
+            id="userName"
+            placeholder="Enter your username"
             type="text"
             onChange={this.onChange}
             value={userName}
