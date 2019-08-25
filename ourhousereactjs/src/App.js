@@ -29,6 +29,7 @@ class App extends Component {
           <MaintenancePage path="/maintenance" />
           <TenantPropertyDetailsPage path="/propertyDetails" />
           <Chatroom path="/messaging" />
+
         </Router>
       </>
     );
