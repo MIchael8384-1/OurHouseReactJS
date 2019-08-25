@@ -6,6 +6,8 @@ import fire from "./components/config/fire";
 import ls from "local-storage";
 import { Router } from "@reach/router";
 import MaintenancePage from "./components/Maintenance/MaintenancePage";
+import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/TenantPropertyDetails";
+import Chatroom from "./components/messaging/Chatroom";
 
 class App extends Component {
   state = {
@@ -25,6 +27,8 @@ class App extends Component {
             <Login path="/" setStateWithUsername={this.setStateWithUsername} />
           )}
           <MaintenancePage path="/maintenance" />
+          <TenantPropertyDetailsPage path="/propertyDetails" />
+          <Chatroom path="/messaging" />
         </Router>
       </>
     );
