@@ -12,6 +12,17 @@
   height: 35%;
 }
 
+.OurHouseLogo2 {
+  display: flex;
+  justify-content: center;
+  margin-left: 32%;
+  margin-right: 25%;
+  margin-top: 5%;
+  width: 35%;
+  height: 35%;
+  position: absolute;
+}
+
 .SignupText {
   display: grid;
   justify-items: center;

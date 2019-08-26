@@ -6,6 +6,7 @@ import fire from "./components/config/fire";
 import ls from "local-storage";
 import { Router } from "@reach/router";
 import MaintenancePage from "./components/Maintenance/MaintenancePage";
+import LandingPage from "./LandingPage";
 
 class App extends Component {
   state = {
@@ -19,10 +20,14 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
+          <LandingPage path="/" />
           {user ? (
-            <Home path="/" username={username} />
+            <Home path="/home" username={username} />
           ) : (
-            <Login path="/" setStateWithUsername={this.setStateWithUsername} />
+            <Login
+              path="/login"
+              setStateWithUsername={this.setStateWithUsername}
+            />
           )}
           <MaintenancePage path="/maintenance" />
         </Router>
