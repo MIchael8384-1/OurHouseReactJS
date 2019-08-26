@@ -1,5 +1,64 @@
 import React, { Component } from "react";
 import fire, { db } from "../config/fire";
+import { Link } from "@reach/router";
+import styled from "styled-components";
+import logo from "../../media/OurHouse.png";
+import emailicon from "../../media/email.png";
+import lockicon from "../../media/lock.png";
+import nameicon from "../../media/name.png";
+
+const Input = styled.input`
+  padding-left: 35px;
+  border: 1px solid rgba(237, 49, 146, 1);
+  border-radius: 30px;
+  font-size: 12px;
+  width: 24em;
+  height: 3em;
+  background-image: url(${emailicon});
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 7px center;
+  margin-bottom: 0.75em;
+`;
+
+const Input2 = styled.input`
+  padding-left: 35px;
+  border: 1px solid rgba(237, 49, 146, 1);
+  border-radius: 30px;
+  font-size: 12px;
+  width: 24em;
+  height: 3em;
+  background-image: url(${lockicon});
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 7px center;
+  margin-bottom: 0.75em;
+`;
+
+const Input3 = styled.input`
+  padding-left: 35px;
+  border: 1px solid rgba(237, 49, 146, 1);
+  border-radius: 30px;
+  font-size: 12px;
+  width: 24em;
+  height: 3em;
+  background-image: url(${nameicon});
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 7px center;
+  margin-bottom: 0.75em;
+`;
+
+const Button = styled.button`
+  border-radius: 30px;
+  border: none;
+  color: white;
+  background-color: rgba(237, 49, 146, 1);
+  width: 27em;
+  height: 3em;
+  font-size: 12px;
+`;
+
 
 class Login extends Component {
   state = {
@@ -13,33 +72,42 @@ class Login extends Component {
     const { email, password, userName } = this.state;
     return (
       <>
-        <div>Email</div>
-        <input
-          id="email"
-          placeholder="Enter your Email address..."
-          type="email"
-          onChange={this.onChange}
-          value={email}
-        />
-        <div>Password</div>
-        <input
-          id="password"
-          placeholder="Enter your password..."
-          type="text"
-          onChange={this.onChange}
-          value={password}
-        />
-        <div>
-          <div>Username</div>
-          <input
+        <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>
+        <div className="SignupText">Log in</div>
+        <div className="SignupFormContainer">
+          <Input
+            id="email"
+            placeholder="Enter your email address..."
+            type="email"
+            onChange={this.onChange}
+            value={email}
+          />
+          <Input2
+            id="password"
+            placeholder="Enter your password..."
+            type="text"
+            onChange={this.onChange}
+            value={password}
+          />
+          <Input3
             id="userName"
-            placeholder="Enter your username..."
+            placeholder="Enter your username"
+
             type="text"
             onChange={this.onChange}
             value={userName}
           />
-          <button onClick={this.logIn}>Login </button>
-          <button onClick={this.signUp}>Sign Up</button>
+          <Button onClick={this.signUp}>SIGN IN</Button>
+        </div>
+
+        <div className="ExistingUserSignin">
+          Don't have an account?
+          <Link to="/signup">
+            <button className="SigninButton" onClick={this.logIn}>
+              Sign up{" "}
+            </button>
+          </Link>
+
         </div>
       </>
     );

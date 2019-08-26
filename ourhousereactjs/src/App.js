@@ -6,6 +6,7 @@ import fire from "./components/config/fire";
 import ls from "local-storage";
 import { Router } from "@reach/router";
 import MaintenancePage from "./components/Maintenance/MaintenancePage";
+import LandingPage from "./LandingPage";
 import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/TenantPropertyDetails";
 import Chatroom from "./components/messaging/Chatroom";
 
@@ -19,6 +20,7 @@ class App extends Component {
   render() {
     const { user, username } = this.state;
     return (
+
       <>
         <Router>
           {user ? (
