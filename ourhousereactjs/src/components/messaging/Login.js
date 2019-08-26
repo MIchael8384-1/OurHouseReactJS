@@ -57,6 +57,7 @@ const Button = styled.button`
   width: 27em;
   height: 3em;
   font-size: 12px;
+  font-family: Futura;
 `;
 
 class Login extends Component {
@@ -71,7 +72,9 @@ class Login extends Component {
     const { email, password, userName } = this.state;
     return (
       <>
-        <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>
+        <Link to="/">
+          <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>
+        </Link>
         <div className="SignupText">Log in</div>
         <div className="SignupFormContainer">
           <Input

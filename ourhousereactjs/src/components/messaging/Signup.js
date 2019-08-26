@@ -102,7 +102,9 @@ class Signup extends Component {
     const { email, password, userName, firstName, lastName } = this.state;
     return (
       <>
-        <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>
+        <Link to="/">
+          <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>
+        </Link>
         <div className="SignupText">Sign up</div>
         <div className="SignupFormContainer">
           <Input
