@@ -6,10 +6,13 @@ import fire from "./components/config/fire";
 import ls from "local-storage";
 import { Router } from "@reach/router";
 import MaintenancePage from "./components/Maintenance/MaintenancePage";
-import LandingPage from "./LandingPage";
 import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/TenantPropertyDetails";
 import Chatroom from "./components/messaging/Chatroom";
+import LandlordPropertyDetailsPage from "./components/LandlordPropertyPage/LandlordPropertyDetailsPage";
+import LandingPage from "./LandingPage";
+import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/TenantPropertyDetails";
 import Signup from "./components/messaging/Signup";
+
 
 class App extends Component {
   state = {
@@ -39,6 +42,7 @@ class App extends Component {
           <MaintenancePage path="/home" />
           <TenantPropertyDetailsPage path="/propertyDetails" />
           <Chatroom path="/messaging" />
+          <LandlordPropertyDetailsPage path="/landlordpropertydetails" />
         </Router>
       </>
     );
