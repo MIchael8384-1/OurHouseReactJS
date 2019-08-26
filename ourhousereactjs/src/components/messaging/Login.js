@@ -59,6 +59,7 @@ const Button = styled.button`
   font-size: 12px;
 `;
 
+
 class Login extends Component {
   state = {
     email: "",
@@ -91,6 +92,7 @@ class Login extends Component {
           <Input3
             id="userName"
             placeholder="Enter your username"
+
             type="text"
             onChange={this.onChange}
             value={userName}
@@ -105,6 +107,7 @@ class Login extends Component {
               Sign up{" "}
             </button>
           </Link>
+
         </div>
       </>
     );
