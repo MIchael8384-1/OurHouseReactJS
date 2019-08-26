@@ -23,6 +23,10 @@
   position: absolute;
 }
 
+img .OurHouseLogo2:hover {
+  cursor: pointer;
+}
+
 .SignupText {
   display: grid;
   justify-items: center;

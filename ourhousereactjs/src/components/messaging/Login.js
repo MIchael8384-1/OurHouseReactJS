@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import fire, { db } from "../config/fire";
+import { Link } from "@reach/router";
 import styled from "styled-components";
 import logo from "../../media/OurHouse.png";
 import emailicon from "../../media/email.png";
@@ -71,7 +72,7 @@ class Login extends Component {
     return (
       <>
         <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>
-        <div className="SignupText">Sign up</div>
+        <div className="SignupText">Log in</div>
         <div className="SignupFormContainer">
           <Input
             id="email"
@@ -94,14 +95,16 @@ class Login extends Component {
             onChange={this.onChange}
             value={userName}
           />
-          <Button onClick={this.signUp}>CREATE ACCOUNT</Button>
+          <Button onClick={this.signUp}>SIGN IN</Button>
         </div>
 
         <div className="ExistingUserSignin">
-          Already have an account?
-          <button className="SigninButton" onClick={this.logIn}>
-            Sign in{" "}
-          </button>
+          Don't have an account?
+          <Link to="/signup">
+            <button className="SigninButton" onClick={this.logIn}>
+              Sign up{" "}
+            </button>
+          </Link>
         </div>
       </>
     );
