@@ -9,6 +9,11 @@ import MaintenancePage from "./components/Maintenance/MaintenancePage";
 import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/TenantPropertyDetails";
 import Chatroom from "./components/messaging/Chatroom";
 import LandlordPropertyDetailsPage from "./components/LandlordPropertyPage/LandlordPropertyDetailsPage";
+import LandingPage from "./LandingPage";
+import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/TenantPropertyDetails";
+import Signup from "./components/messaging/Signup";
+
+
 class App extends Component {
   state = {
     user: null,
@@ -24,10 +29,18 @@ class App extends Component {
           {user ? (
             <Home path="/" username={username} />
           ) : (
-            <Login path="/" setStateWithUsername={this.setStateWithUsername} />
+            <Login
+              path="/login"
+              setStateWithUsername={this.setStateWithUsername}
+            />
           )}
-          <MaintenancePage path="/maintenance" />
-          <TenantPropertyDetailsPage path="/tenantpropertyetails" />
+          <Signup
+            path="/signup"
+            setStateWithUsername={this.setStateWithUsername}
+          />
+          <LandingPage path="/" />
+          <MaintenancePage path="/home" />
+          <TenantPropertyDetailsPage path="/propertyDetails" />
           <Chatroom path="/messaging" />
           <LandlordPropertyDetailsPage path="/landlordpropertydetails" />
         </Router>
