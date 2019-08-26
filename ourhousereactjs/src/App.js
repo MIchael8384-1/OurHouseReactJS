@@ -7,6 +7,9 @@ import ls from "local-storage";
 import { Router } from "@reach/router";
 import MaintenancePage from "./components/Maintenance/MaintenancePage";
 import LandingPage from "./LandingPage";
+import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/TenantPropertyDetails";
+import Chatroom from "./components/messaging/Chatroom";
+import Signup from "./components/messaging/Signup";
 
 class App extends Component {
   state = {
@@ -18,20 +21,26 @@ class App extends Component {
   render() {
     const { user, username } = this.state;
     return (
-      <div className="App">
+      <>
         <Router>
-          <LandingPage path="/" />
           {user ? (
-            <Home path="/home" username={username} />
+            <Home path="/" username={username} />
           ) : (
             <Login
               path="/login"
               setStateWithUsername={this.setStateWithUsername}
             />
           )}
-          <MaintenancePage path="/maintenance" />
+          <Signup
+            path="/signup"
+            setStateWithUsername={this.setStateWithUsername}
+          />
+          <LandingPage path="/" />
+          <MaintenancePage path="/home" />
+          <TenantPropertyDetailsPage path="/propertyDetails" />
+          <Chatroom path="/messaging" />
         </Router>
-      </div>
+      </>
     );
   }
 
