@@ -1,0 +1,14 @@
+.maintenance-current-issues {
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-auto-rows: minmax(200px, auto);
+    grid-gap: 1rem;
+}
+
+.add-item {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin: 20px 0;
+}

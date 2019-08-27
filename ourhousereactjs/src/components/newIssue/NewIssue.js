@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import Aframe from "../Aframe/src/index.js";
+import {
+  navigate
+} from "@reach/router"
+
+import './newissue.css'
 
 class NewIssue extends Component {
   state = {
@@ -7,11 +12,25 @@ class NewIssue extends Component {
     issue: "",
     description: "",
     selectedArea: "None",
-    launch360: false
+    launch360: false,
+    rooms: [
+      { name: "master bedroom", room_id: 1 },
+      { name: "bedroom 2", room_id: 2 },
+      { name: "bedroom 3", room_id: 3 },
+      { name: "living room", room_id: 4 },
+      { name: "en suite", room_id: 5 },
+      { name: "bathroom", room_id: 6 },
+      { name: "hallway", room_id: 7 },
+      { name: "dining room", room_id: 8 },
+      { name: "garden", room_id: 9 },
+      { name: "garage", room_id: 10 },
+      { name: "Stairs", room_id: 11 },
+      { name: "kitchen", room_id: 12 }
+    ]
   };
 
   render() {
-    const { rooms } = this.props;
+    const { rooms } = this.state;
     const { issue, description, launch360 } = this.state;
     return (
       <>
@@ -19,20 +38,23 @@ class NewIssue extends Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <h3>Room: </h3>
+            <div className="issue-btn-container"> 
             {rooms.map(room => {
               return (
-                <div key={room.room_id}>
                   <input
-                    type="radio"
+                    key={room.room_id}
+                    type="button"
                     name="selectedRoom"
                     value={room.name}
-                    onChange={this.handleChange}
-                  />{" "}
-                  {room.name}
-                </div>
+                    className="issue-btn"
+                    onClick={this.handleChange}
+                    
+                  />
+               
               );
             })}
-            <br />
+            </div>
+            
             <h3>Issue: </h3>
             <input
               type="text"
@@ -41,7 +63,7 @@ class NewIssue extends Component {
               onChange={this.handleChange}
               value={issue}
             />
-            <br />
+         
             <h3>Description: </h3>
             <textarea
               rows="10"
@@ -59,7 +81,7 @@ class NewIssue extends Component {
               name="selectedRoom"
               disabled={this.state.selectedArea !== "None"}
             />
-            <p>Currently selected area: {this.state.selectedArea}</p>
+            <p>Current selected area: {this.state.selectedArea}</p>
             <input type="submit" value="Submit" />
           </form>
         </div>
@@ -71,9 +93,9 @@ class NewIssue extends Component {
     console.log(event.target);
   };
 
-  handleChange = ({ target: { name, value } }) => {
+  handleChange = ({target:{name,value}}) => {
     this.setState({ [name]: value });
-    // if (name === 'selectedRoom') Make GET request for room image
+    if (name === 'selectedRoom'){} //Make GET request for room image
   };
 
   postNewIssue = location => {
@@ -96,6 +118,8 @@ class NewIssue extends Component {
       this.state.selectedRoom
     );
     //Make a POST request to post new issue with keys above
+    navigate('/maintenance')
+    
   };
 }
 

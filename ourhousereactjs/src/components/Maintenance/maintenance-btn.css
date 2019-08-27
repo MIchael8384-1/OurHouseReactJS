@@ -1,0 +1,50 @@
+.add-item-btn:before {
+    content: '';
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.add-item-btn {
+    background: #1AAB8A;
+    color: #F4F7F6;
+    border: none;
+    position: relative;
+    height: 60px;
+    font-size: 1.6em;
+    padding: 0 2em;
+    cursor: pointer;
+    transition: 800ms ease all;
+    outline: none;
+
+}
+
+.add-item-btn:hover {
+    background: #F4F7F6;
+    color: #1AAB8A;
+}
+
+.add-item-btn:before,
+button:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    width: 0;
+    background: #1AAB8A;
+    transition: 400ms ease all;
+}
+
+.add-item-btn:after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+.add-item-btn:hover:before,
+.add-item-btn:hover:after {
+    width: 100%;
+    transition: 800ms ease all;
+}
