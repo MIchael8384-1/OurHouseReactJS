@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import CurrentIssueCard from "./CurrentIssueCard";
-import NewIssue from "./NewIssue";
+import { Link } from "@reach/router";
+
+import './maintenance.css'
+import './maintenance-btn.css'
 
 class MaintenancePage extends Component {
   state = {
@@ -20,39 +23,69 @@ class MaintenancePage extends Component {
         desc: "Fucking hell Jeremy this has been here for a month"
       }
     ],
-    rooms: [
-      { name: "bedroom", room_id: 1 },
-      { name: "lounge", room_id: 2 },
-      { name: "kitchen", room_id: 3 }
-    ]
+    
   };
 
   render() {
-    return (
-      <>
-        <h1>Maintenance</h1>
-        <div>
-          <h2>Current issues</h2>
-          <ul>
-            {this.state.currentIssues.map(issue => {
-              return (
-                <CurrentIssueCard
-                  key={issue.issue_id}
-                  issueName={issue.name}
-                  issueLocation={issue.location}
-                  issueDesc={issue.desc}
-                />
-              );
-            })}
-          </ul>
-        </div>
-        <div>
-          <h2>New issue</h2>
-          <NewIssue rooms={this.state.rooms} username={this.state.user} />
-        </div>
-      </>
-    );
-  }
+  return (
+    <div className="maintenance-page">
+      <h1 className="maintenance-title">Maintenance</h1>
+      <p>Here is a list of your current issues, be sure to message your landlord when you have uploaded a new issue!</p>
+        <h2>Current issues</h2>
+      <div className="maintenance-current-issues">
+        
+          {this.state.currentIssues.map(issue => {
+            return (
+              <CurrentIssueCard
+                key={issue.issue_id}
+                issue_id={issue.issue_id}
+                {...issue}
+              />
+            );
+          })}
+          
+          
+       
+      </div>
+      <div className="add-item">
+       
+      <Link to="/maintenance/newissue"className="add-item-btn">add item</Link>
+      </div>
+      {/* <div>
+        <h2>New issue</h2>
+        <NewIssue rooms={this.state.rooms} username={this.state.user} />
+      </div> */}
+    </div>
+  );
+}
 }
 
 export default MaintenancePage;
+
+
+// render() {
+//   return (
+//     <>
+//       <h1>Maintenance</h1>
+//       <div>
+//         <h2>Current issues</h2>
+//         <ul>
+//           {this.state.currentIssues.map(issue => {
+//             return (
+//               <CurrentIssueCard
+//                 key={issue.issue_id}
+//                 issueName={issue.name}
+//                 issueLocation={issue.location}
+//                 issueDesc={issue.desc}
+//               />
+//             );
+//           })}
+//         </ul>
+//       </div>
+//       <div>
+//         <h2>New issue</h2>
+//         <NewIssue rooms={this.state.rooms} username={this.state.user} />
+//       </div>
+//     </>
+//   );
+// }

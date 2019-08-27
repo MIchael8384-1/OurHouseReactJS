@@ -1,0 +1,60 @@
+.preview-item {
+    border-radius: 4px;
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #fcfcfc;
+}
+
+.preview-item .preview-issue-id {
+    display: flex;
+    justify-content: space-between;
+}
+
+.preview-item .preview-issue-card-header {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+}
+
+.preview-item .preview-card-body {
+    font-size: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.preview-item .preview-card-body .preview-date {
+    font-size: 11px;
+    font-weight: 600;
+    color: grey;
+}
+
+.preview-item .preview-card-body h2 {
+    font-size: 1rem;
+}
+
+.preview-item .preview-card-body h2:hover {
+    cursor: pointer;
+}
+
+.preview-item .preview-issue-card-footer {
+    border-top: 1px solid #e6eaea;
+    padding-top: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 400;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.preview-item .preview-issue-card-footer .author {
+    width: 80%;
+}
+
+.add-issue {}

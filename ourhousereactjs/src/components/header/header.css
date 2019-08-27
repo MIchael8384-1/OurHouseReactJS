@@ -1,0 +1,54 @@
+.header {
+    padding: 12px;
+    background-color: #4A306E;
+}
+
+.header .nav-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+}
+
+.header .option {
+    margin: 5px;
+    top: 50%;
+}
+
+.header .option:hover {
+    cursor: pointer;
+    color: #ED3192;
+}
+
+.header .our-house-btn {
+    font-weight: 600;
+}
+
+.header .our-house-btn:hover {
+    cursor: pointer;
+    color: #ED3192;
+}
+
+/*  all below to be moved to app.css */
+
+body {
+    background-color: #F4F7F6;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    margin: 0;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.a:hover {
+    color: grey;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
