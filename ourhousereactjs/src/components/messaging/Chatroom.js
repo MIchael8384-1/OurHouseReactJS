@@ -1,6 +1,44 @@
 import React from "react";
 import Message from "./Message";
 import fire, { db } from "../config/fire";
+import styled from "styled-components";
+import download from "../../media/download.png";
+
+const Button = styled.button`
+  border-radius: 30px;
+  border: none;
+  color: white;
+  background-color: rgba(237, 49, 146, 1);
+  width: 6em;
+  height: 3em;
+  font-size: 12px;
+  font-family: Futura;
+`;
+
+const Input = styled.input`
+  padding-left: 35px;
+  border: 1px solid rgba(237, 49, 146, 1);
+  border-radius: 30px;
+  font-size: 12px;
+  width: 24em;
+  height: 3em;
+  margin-right: 2em;
+  font-family: Futura;
+  margin-bottom: 5px;
+`;
+
+const H4 = styled.h4`
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  position: sticky;
+  top: 0;
+  background-image: url(${download});
+  background-repeat: no-repeat;
+  background-size: 24px;
+  background-position: 7px center;
+  margin-top: 5px;
+`;
 
 class Chatroom extends React.Component {
   state = {
@@ -14,24 +52,29 @@ class Chatroom extends React.Component {
     const { msg, messageData } = this.state;
     return (
       <>
-        {messageData
-          ? messageData.map(data => (
-              <Message
-                message={data.msg}
-                createdAt={data.createdAt}
-                key={data.createdAt}
-                username={data.username}
-              />
-            ))
-          : "Loading..."}
-        <div>
-          <input
-            type="text"
-            placeholder="Type message..."
-            value={msg}
-            onChange={this.onChange}
-          />
-          <button onClick={this.onClick}>Send</button>
+        <div className="Chatroom">
+          <div className="ChatroomMessages">
+            <H4> 1 Federation House</H4>
+            {messageData
+              ? messageData.map(data => (
+                  <Message
+                    message={data.msg}
+                    createdAt={data.createdAt}
+                    key={data.createdAt}
+                    username={data.username}
+                  />
+                ))
+              : "Loading..."}
+          </div>
+          <div className="StickyInput">
+            <Input
+              type="text"
+              placeholder="Type message..."
+              value={msg}
+              onChange={this.onChange}
+            />
+            <Button onClick={this.onClick}>Send</Button>
+          </div>
         </div>
       </>
     );
@@ -60,7 +103,8 @@ class Chatroom extends React.Component {
       .collection("messages")
       .add({ username: currentUser, msg, createdAt })
       .then(this.setState({ msg: "", createdAt: "" }))
-      .catch(err => this.setState({ err }));
+      .catch(err => this.setState({ err }))
+      .then(this.setState({ fromMe: true }));
   };
 
   returnMessages() {
