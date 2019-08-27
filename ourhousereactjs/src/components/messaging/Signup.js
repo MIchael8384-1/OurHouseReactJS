@@ -6,7 +6,7 @@ import logo from "../../media/OurHouse.png";
 import emailicon from "../../media/email.png";
 import lockicon from "../../media/lock.png";
 import nameicon from "../../media/name.png";
-// import { navigate } from "@reach/router/lib/history";
+import { navigate } from "@reach/router";
 
 const Input = styled.input`
   padding-left: 35px;
@@ -99,6 +99,7 @@ class Signup extends Component {
   };
 
   render() {
+    console.log("inside signup");
     const { email, password, userName, firstName, lastName } = this.state;
     return (
       <>
@@ -142,9 +143,7 @@ class Signup extends Component {
             onChange={this.onChange}
             value={userName}
           />
-          <Link to="/home">
-            <Button onClick={this.signUp}>CREATE ACCOUNT</Button>
-          </Link>
+          <Button onClick={this.signUp}>CREATE ACCOUNT</Button>
         </div>
       </>
     );
@@ -177,11 +176,10 @@ class Signup extends Component {
           firstName: "",
           lastName: ""
         })
-      )
-      // .then(navigate("/home"))
-      .catch(err => {
-        this.setState({ err });
-      });
+      );
+    navigate(`/landlordpropertydetails`).catch(err => {
+      this.setState({ err });
+    });
   };
 }
 

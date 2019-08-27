@@ -8,10 +8,8 @@ import { Router } from "@reach/router";
 import MaintenancePage from "./components/Maintenance/MaintenancePage";
 import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/TenantPropertyDetails";
 import Chatroom from "./components/messaging/Chatroom";
-
 import Header from "./components/header/headers";
 import NewIssue from "./components/newIssue/NewIssue";
-
 import LandlordPropertyDetailsPage from "./components/LandlordPropertyPage/LandlordPropertyDetailsPage";
 import LandingPage from "./LandingPage";
 import Signup from "./components/messaging/Signup";
@@ -29,8 +27,12 @@ class App extends Component {
       <>
         <Header></Header>
         <Router>
+          <LandingPage path="/" />
           {user ? (
-            <Home path="/" username={username} />
+            <LandlordPropertyDetailsPage
+              path="/landlordpropertydetails"
+              username={username}
+            />
           ) : (
             <Login
               path="/login"
@@ -45,14 +47,11 @@ class App extends Component {
             path="/signup"
             setStateWithUsername={this.setStateWithUsername}
           />
-          <LandingPage path="/" />
-
+          <Home path="/logout" />
+          <NewIssue path="/maintenance/newissue"></NewIssue>
+          <MaintenancePage path="/maintenance" />
           <TenantPropertyDetailsPage path="/propertyDetails" />
           <Chatroom path="/messaging" username={username} />
-          <LandlordPropertyDetailsPage
-            path="/landlordpropertydetails"
-            username={username}
-          />
         </Router>
       </>
     );
