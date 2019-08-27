@@ -6,6 +6,7 @@ import logo from "../../media/OurHouse.png";
 import emailicon from "../../media/email.png";
 import lockicon from "../../media/lock.png";
 import nameicon from "../../media/name.png";
+import { navigate } from "@reach/router";
 
 const Input = styled.input`
   padding-left: 35px;
@@ -65,11 +66,13 @@ class Login extends Component {
     email: "",
     password: "",
     userName: "",
+    help: false,
     err: null
   };
 
   render() {
     const { email, password, userName } = this.state;
+    console.log("rendering in login");
     return (
       <>
         <Link to="/">
@@ -124,7 +127,6 @@ class Login extends Component {
       .signInWithEmailAndPassword(email, password)
       .then(this.setState({ email: "", password: "" }))
       .then(({ user: { uid } }) => {
-        // speak to beautiful soup
         db.collection("Users")
           .where("user_id", "==", uid)
           .where("username", "==", userName)
@@ -133,10 +135,10 @@ class Login extends Component {
             const data = querySnapshot.docs.map(doc => doc.data());
             this.props.setStateWithUsername(data[0].username);
           });
-      })
-      .catch(err => {
-        this.setState({ err });
       });
+    navigate(`/landlordpropertydetails`).catch(err => {
+      this.setState({ err });
+    });
   };
 }
 
