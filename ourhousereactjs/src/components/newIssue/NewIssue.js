@@ -36,8 +36,9 @@ class NewIssue extends Component {
       <>
         {launch360 ? <Aframe postNewIssue={this.postNewIssue} /> : null}
         <div>
-          <form onSubmit={this.handleSubmit}>
-            <h3>Room: </h3>
+        <h1>Submit an Issue </h1>
+          <form onSubmit={this.handleSubmit} className="issue-form">
+            <h3>What room is the issue in? </h3>
             <div className="issue-btn-container"> 
             {rooms.map(room => {
               return (
@@ -54,17 +55,18 @@ class NewIssue extends Component {
               );
             })}
             </div>
-            
-            <h3>Issue: </h3>
+            <h3>What is the issue? </h3>
             <input
               type="text"
               required
               name="issue"
               onChange={this.handleChange}
               value={issue}
+              className="issue-input"
             />
-         
-            <h3>Description: </h3>
+            
+            <div className="issue-item">
+            <h3>Description of your issue: </h3>
             <textarea
               rows="10"
               cols="40"
@@ -72,7 +74,10 @@ class NewIssue extends Component {
               onChange={this.handleChange}
               value={description}
               required
+              className="issue-input-description"
             />
+            </div>
+            <div className="issue-area-and-submit">
             <h3>Select area</h3>
             <input
               type="button"
@@ -83,6 +88,7 @@ class NewIssue extends Component {
             />
             <p>Current selected area: {this.state.selectedArea}</p>
             <input type="submit" value="Submit" />
+            </div>
           </form>
         </div>
       </>

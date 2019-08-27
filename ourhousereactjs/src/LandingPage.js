@@ -3,11 +3,11 @@ import Illustration from "./media/OurHouseIllustration.png";
 import logo from "./media/OurHouse.png";
 import { Link } from "@reach/router";
 
-// import './LandingPage.css'
+import './LandingPage.css'
 
 const LandingPage = () => {
   return (
-    <>
+    <div className="landing-page">
       <Link to="/login">
         <img className="OurHouseLogo2" src={logo} alt="Our House Logo" />
       </Link>
@@ -16,7 +16,7 @@ const LandingPage = () => {
         style={{ width: "100%", marginLeft: "1%", marginTop: "11%" }}
         alt="Our House Illustration"
       />
-    </>
+    </div>
   );
 };
 

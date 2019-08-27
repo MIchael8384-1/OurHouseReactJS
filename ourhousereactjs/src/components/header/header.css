@@ -1,6 +1,7 @@
 .header {
     padding: 12px;
     background-color: #4A306E;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .header .nav-bar {
@@ -33,8 +34,6 @@
 /*  all below to be moved to app.css */
 
 body {
-    background-color: #F4F7F6;
-    font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     margin: 0;
 }
@@ -44,9 +43,7 @@ a {
     text-decoration: none;
 }
 
-.a:hover {
-    color: grey;
-}
+
 
 ul {
     margin: 0;

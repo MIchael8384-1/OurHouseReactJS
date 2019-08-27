@@ -7,6 +7,8 @@ import emailicon from "../../media/email.png";
 import lockicon from "../../media/lock.png";
 import nameicon from "../../media/name.png";
 
+import './login.css'
+
 const Input = styled.input`
   padding-left: 35px;
   border: 1px solid rgba(237, 49, 146, 1);
@@ -71,7 +73,7 @@ class Login extends Component {
   render() {
     const { email, password, userName } = this.state;
     return (
-      <>
+      <div className="login-page">
         <Link to="/">
           <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>
         </Link>
@@ -107,7 +109,7 @@ class Login extends Component {
             <button className="SigninButton">Sign up </button>
           </Link>
         </div>
-      </>
+      </div>
     );
   }
 
