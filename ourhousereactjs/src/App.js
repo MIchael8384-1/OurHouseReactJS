@@ -48,7 +48,7 @@ class App extends Component {
           <LandingPage path="/" />
 
           <TenantPropertyDetailsPage path="/propertyDetails" />
-          <Chatroom path="/messaging" />
+          <Chatroom path="/messaging" username={username} />
           <LandlordPropertyDetailsPage
             path="/landlordpropertydetails"
             username={username}
