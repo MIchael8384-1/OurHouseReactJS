@@ -8,7 +8,10 @@ const CurrentIssueCard = ({ issueName, issueLocation, issueDesc }) => {
       <p>Location: {issueLocation}</p>
       <p>Description: {issueDesc}</p>
       <label htmlFor="issueImage">Upload an image for issue: </label>
-      <input type="file" id="issueImage" name="issueImage" />
+      <input
+        type="file"
+        id="issueImage"
+        name="issueImage"      />
       <button type="button">Delete issue</button>
     </li>
   );

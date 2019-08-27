@@ -3,19 +3,21 @@ import React, { Component } from "react";
 class SelectedTenant extends Component {
   render() {
     const {
-      firstName,
-      lastName,
-      paidRent,
-      monthsLeft
+      FirstName,
+      Surname,
+      Email,
+      RentAmount,
+      TenancyExpires
     } = this.props.selectedTenant[0];
     return (
       <div>
-        <h3>{firstName}</h3>
+        <h3>{FirstName}</h3>
         <p>
-          Full name: {firstName} {lastName}
+          Full name: {FirstName} {Surname}
         </p>
-        <p>Have they paid rent? {paidRent ? <>Yes</> : <>No</>}</p>
-        <p>Months left on contract: {monthsLeft}</p>
+        <p>Email: {Email}</p>
+        <p>Tenancy expiry date: {TenancyExpires}</p>
+        <p>Rent pcm: £{RentAmount}.00</p>
       </div>
     );
   }
