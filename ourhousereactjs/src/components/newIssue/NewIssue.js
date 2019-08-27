@@ -54,7 +54,7 @@ class NewIssue extends Component {
               );
             })}
             </div>
-            
+            yo
             <h3>Issue: </h3>
             <input
               type="text"
