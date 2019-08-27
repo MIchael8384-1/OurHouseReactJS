@@ -51,10 +51,7 @@ class MaintenancePage extends Component {
        
       <Link to="/maintenance/newissue"className="add-item-btn">add item</Link>
       </div>
-      {/* <div>
-        <h2>New issue</h2>
-        <NewIssue rooms={this.state.rooms} username={this.state.user} />
-      </div> */}
+    
     </div>
   );
 }
@@ -63,29 +60,3 @@ class MaintenancePage extends Component {
 export default MaintenancePage;
 
 
-// render() {
-//   return (
-//     <>
-//       <h1>Maintenance</h1>
-//       <div>
-//         <h2>Current issues</h2>
-//         <ul>
-//           {this.state.currentIssues.map(issue => {
-//             return (
-//               <CurrentIssueCard
-//                 key={issue.issue_id}
-//                 issueName={issue.name}
-//                 issueLocation={issue.location}
-//                 issueDesc={issue.desc}
-//               />
-//             );
-//           })}
-//         </ul>
-//       </div>
-//       <div>
-//         <h2>New issue</h2>
-//         <NewIssue rooms={this.state.rooms} username={this.state.user} />
-//       </div>
-//     </>
-//   );
-// }
