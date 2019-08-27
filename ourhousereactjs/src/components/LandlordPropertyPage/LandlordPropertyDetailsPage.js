@@ -1,34 +1,44 @@
 import React, { Component } from "react";
 import AddNewPropertyForm from "./AddNewPropertyForm";
 import PropertiesDropdown from "./PropertiesDropdown";
+import * as API from "../../api";
+import ls from "local-storage";
 
 class LandlordPropertyDetailsPage extends Component {
   state = {
-    properties: [
-      {
-        propertyName: "NorthCoders",
-        address: "Federation House, Federation St, Manchester M4 2AH",
-        rentDueDate: "15",
-        rentAmount: 800
-      },
-      {
-        propertyName: "FirstEnergy Stadium",
-        address:
-          "FirstEnergy Stadium, 100 Alfred Lerner Way, Cleveland, OH 44114, USA",
-        rentDueDate: "20",
-        rentAmount: 1000000
-      }
-    ]
+    properties: []
   };
 
   render() {
     return (
       <div>
-        <AddNewPropertyForm />
-        <PropertiesDropdown propertyArray={this.state.properties} />
+        <AddNewPropertyForm username={this.props.username} />
+        {this.state.properties ? (
+          <PropertiesDropdown propertyArray={this.state.properties} />
+        ) : (
+          <p>Loading</p>
+        )}
       </div>
     );
   }
+
+  componentDidMount() {
+    this.fetchProperties();
+  }
+
+  fetchProperties = () => {
+    const Username = ls.get("currentUsername");
+    return API.getProperties(Username)
+      .then(properties => {
+        console.log(properties);
+        const filteredProperties = properties.filter(property => {
+          return property.Username === ls.get("currentUsername");
+        });
+        console.log(filteredProperties);
+        this.setState({ properties: filteredProperties });
+      })
+      .catch(console.log);
+  };
 }
 
 export default LandlordPropertyDetailsPage;

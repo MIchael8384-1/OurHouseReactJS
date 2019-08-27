@@ -1,16 +1,23 @@
 import React, { Component } from "react";
-
+import * as API from "../../api";
 class AddNewTenantForm extends Component {
   state = {
     selectedTenant: null,
-    firstName: "",
-    lastName: "",
-    paidRent: false,
-    monthsLeft: 0
+    FirstName: "",
+    Surname: "",
+    Email: "",
+    RentAmount: 0,
+    TenancyExpires: ""
   };
 
   render() {
-    const { firstName, lastName, monthsLeft } = this.state;
+    const {
+      FirstName,
+      Surname,
+      Email,
+      RentAmount,
+      TenancyExpires
+    } = this.state;
     return (
       <div>
         <h1>Add a new tenant:</h1>
@@ -18,37 +25,36 @@ class AddNewTenantForm extends Component {
           <h3>First name: </h3>
           <input
             type="text"
-            name="firstName"
-            value={firstName}
+            name="FirstName"
+            value={FirstName}
             onChange={this.handleChange}
           />
           <h3>Last name: </h3>
           <input
             type="text"
-            name="lastName"
-            value={lastName}
+            name="Surname"
+            value={Surname}
             onChange={this.handleChange}
           />
-          <h3>Paid rent: </h3>
-          Yes
+          <h3>Email address</h3>
           <input
-            type="radio"
-            name="paidRent"
-            value={true}
+            type="text"
+            name="Email"
+            value={Email}
             onChange={this.handleChange}
           />
-          No
-          <input
-            type="radio"
-            name="paidRent"
-            value={false}
-            onChange={this.handleChange}
-          />
-          <h3>Months left on contract: </h3>
+          <h3>Rent amount: </h3>
           <input
             type="number"
-            name="monthsLeft"
-            value={monthsLeft}
+            name="RentAmount"
+            value={RentAmount}
+            onChange={this.handleChange}
+          />
+          <h3>When does the tenancy expire: </h3>
+          <input
+            type="text"
+            name="TenancyExpires"
+            value={TenancyExpires}
             onChange={this.handleChange}
           />
           <br />
@@ -60,12 +66,42 @@ class AddNewTenantForm extends Component {
 
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
-    console.log(value);
   };
 
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.state);
+    this.postTenant();
+    this.setState({
+      FirstName: "",
+      Surname: "",
+      RentAmount: 0,
+      TenancyExpires: ""
+    });
+  };
+
+  postTenant = () => {
+    const {
+      FirstName,
+      Surname,
+      Email,
+      RentAmount,
+      TenancyExpires
+    } = this.state;
+    const { Address } = this.props;
+    const tenant = {
+      FirstName,
+      Surname,
+      Email,
+      RentAmount,
+      Address,
+      TenancyExpires
+    };
+    return API.postTenant(tenant)
+      .then(tenant => {
+        console.log(tenant);
+      })
+      .catch(console.log);
   };
 }
 

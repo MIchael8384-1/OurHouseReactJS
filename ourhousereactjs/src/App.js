@@ -10,9 +10,7 @@ import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/Tenant
 import Chatroom from "./components/messaging/Chatroom";
 import LandlordPropertyDetailsPage from "./components/LandlordPropertyPage/LandlordPropertyDetailsPage";
 import LandingPage from "./LandingPage";
-import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/TenantPropertyDetails";
 import Signup from "./components/messaging/Signup";
-
 
 class App extends Component {
   state = {
@@ -42,7 +40,10 @@ class App extends Component {
           <MaintenancePage path="/home" />
           <TenantPropertyDetailsPage path="/propertyDetails" />
           <Chatroom path="/messaging" />
-          <LandlordPropertyDetailsPage path="/landlordpropertydetails" />
+          <LandlordPropertyDetailsPage
+            path="/landlordpropertydetails"
+            username={username}
+          />
         </Router>
       </>
     );

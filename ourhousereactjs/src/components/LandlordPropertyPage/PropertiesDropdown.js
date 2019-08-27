@@ -16,8 +16,8 @@ class PropertiesDropdown extends Component {
           </option>
           {this.props.propertyArray.map(property => {
             return (
-              <option key={property.property_id} value={property.propertyName}>
-                {property.propertyName}
+              <option key={property.Property_id} value={property.PropertyName}>
+                {property.PropertyName}
               </option>
             );
           })}
@@ -25,7 +25,7 @@ class PropertiesDropdown extends Component {
         {this.state.selectedOption ? (
           <SelectedProperty
             selectedProperty={this.props.propertyArray.filter(property => {
-              return property.propertyName === this.state.selectedOption;
+              return property.PropertyName === this.state.selectedOption;
             })}
           />
         ) : null}

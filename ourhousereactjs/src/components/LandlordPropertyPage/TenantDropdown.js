@@ -16,8 +16,8 @@ class TenantDropdown extends Component {
           </option>
           {this.props.tenantArray.map(tenant => {
             return (
-              <option key={tenant.tenant_id} value={tenant.firstName}>
-                {tenant.firstName}
+              <option key={tenant.Tenant_id} value={tenant.FirstName}>
+                {tenant.FirstName}
               </option>
             );
           })}
@@ -25,7 +25,7 @@ class TenantDropdown extends Component {
         {this.state.selectedTenant ? (
           <SelectedTenant
             selectedTenant={this.props.tenantArray.filter(tenant => {
-              return tenant.firstName === this.state.selectedTenant;
+              return tenant.FirstName === this.state.selectedTenant;
             })}
           />
         ) : null}
