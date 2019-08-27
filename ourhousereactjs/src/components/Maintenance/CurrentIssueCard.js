@@ -25,6 +25,7 @@ const CurrentIssueCard = ({desc,issue_id,location,name}) => {
       </div>
 
     </article>
+
   );
   
   

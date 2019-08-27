@@ -6,11 +6,15 @@ import fire from "./components/config/fire";
 import ls from "local-storage";
 import { Router } from "@reach/router";
 import MaintenancePage from "./components/Maintenance/MaintenancePage";
-import LandingPage from "./LandingPage";
 import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/TenantPropertyDetails";
 import Chatroom from "./components/messaging/Chatroom";
+
 import Header from "./components/header/headers";
 import NewIssue from "./components/newIssue/NewIssue";
+
+import LandlordPropertyDetailsPage from "./components/LandlordPropertyPage/LandlordPropertyDetailsPage";
+import LandingPage from "./LandingPage";
+import Signup from "./components/messaging/Signup";
 
 class App extends Component {
   state = {
@@ -22,20 +26,33 @@ class App extends Component {
   render() {
     const { user, username } = this.state;
     return (
-
       <>
         <Header></Header>
         <Router>
           {user ? (
             <Home path="/" username={username} />
           ) : (
-            <Login path="/" setStateWithUsername={this.setStateWithUsername} />
+            <Login
+              path="/login"
+              setStateWithUsername={this.setStateWithUsername}
+            />
           )}
+
           <NewIssue path="/maintenance/newissue"></NewIssue>
           <MaintenancePage path="/maintenance" />
+
+          <Signup
+            path="/signup"
+            setStateWithUsername={this.setStateWithUsername}
+          />
+          <LandingPage path="/" />
+
           <TenantPropertyDetailsPage path="/propertyDetails" />
           <Chatroom path="/messaging" />
-
+          <LandlordPropertyDetailsPage
+            path="/landlordpropertydetails"
+            username={username}
+          />
         </Router>
       </>
     );
