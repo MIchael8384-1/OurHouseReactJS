@@ -39,6 +39,10 @@ class App extends Component {
               setStateWithUsername={this.setStateWithUsername}
             />
           )}
+
+          <NewIssue path="/maintenance/newissue"></NewIssue>
+          <MaintenancePage path="/maintenance" />
+
           <Signup
             path="/signup"
             setStateWithUsername={this.setStateWithUsername}

@@ -1,17 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import AddNewPropertyForm from "./AddNewPropertyForm";
 import PropertiesDropdown from "./PropertiesDropdown";
 import * as API from "../../api";
 import ls from "local-storage";
 
-class LandlordPropertyDetailsPage extends React.Component {
+class LandlordPropertyDetailsPage extends Component {
   state = {
     properties: []
   };
 
   render() {
-    console.log("inside the landlord property details page");
-    console.log(this.props);
     return (
       <div>
         <AddNewPropertyForm username={this.props.username} />
@@ -25,7 +23,6 @@ class LandlordPropertyDetailsPage extends React.Component {
   }
 
   componentDidMount() {
-    console.log("trying to render from login");
     this.fetchProperties();
   }
 
