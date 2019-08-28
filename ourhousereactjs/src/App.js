@@ -8,13 +8,12 @@ import { Router } from "@reach/router";
 import MaintenancePage from "./components/Maintenance/MaintenancePage";
 import TenantPropertyDetailsPage from "./components/TenantPropertyDetails/TenantPropertyDetails";
 import Chatroom from "./components/messaging/Chatroom";
-
 import Header from "./components/header/headers";
 import NewIssue from "./components/newIssue/NewIssue";
-
 import LandlordPropertyDetailsPage from "./components/LandlordPropertyPage/LandlordPropertyDetailsPage";
 import LandingPage from "./LandingPage";
 import Signup from "./components/messaging/Signup";
+import Header2 from "./components/header/Header2";
 
 class App extends Component {
   state = {
@@ -27,10 +26,14 @@ class App extends Component {
     const { user, username } = this.state;
     return (
       <>
-        <Header></Header>
+        {username ? <Header /> : <Header2 path="/" />}
         <Router>
+          <LandingPage path="/" />
           {user ? (
-            <Home path="/" username={username} />
+            <LandlordPropertyDetailsPage
+              path="/landlordpropertydetails"
+              username={username}
+            />
           ) : (
             <Login
               path="/login"
@@ -45,14 +48,11 @@ class App extends Component {
             path="/signup"
             setStateWithUsername={this.setStateWithUsername}
           />
-          <LandingPage path="/" />
-
+          <Home path="/logout" />
+          <NewIssue path="/maintenance/newissue"></NewIssue>
+          <MaintenancePage path="/maintenance" />
           <TenantPropertyDetailsPage path="/propertyDetails" />
-          <Chatroom path="/messaging" />
-          <LandlordPropertyDetailsPage
-            path="/landlordpropertydetails"
-            username={username}
-          />
+          <Chatroom path="/messaging" username={username} />
         </Router>
       </>
     );

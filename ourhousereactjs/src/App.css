@@ -6,21 +6,28 @@
     margin-top: 0%;
     width: 35%;
     height: 35%;
+/*
+  margin-top: 5%;
+  width: 37%;
+  height: 37%;*/
 }
 
 .OurHouseLogo2 {
-    display: flex;
-    justify-content: center;
-    margin-left: 32%;
-    margin-right: 25%;
-    margin-top: 5%;
-    width: 35%;
-    height: 35%;
-    position: absolute;
+  display: flex;
+  justify-content: center;
+  margin-left: 32%;
+  margin-right: 25%;
+  margin-top: 5%;
+  width: 35%;
+  height: 35%;
 }
 
 img .OurHouseLogo2:hover {
     cursor: pointer;
+}
+
+.LoginBackground {
+  background-color: #4a306e;
 }
 
 .SignupText {
@@ -74,4 +81,86 @@ img .OurHouseLogo2:hover {
 
 body {
     background-color: #F4F7F6;
+}
+  /*background-color: #4a306e;
+}*/
+
+ol {
+  padding: 0;
+  margin-left: 5px;
+}
+
+ul {
+  padding: 0;
+}
+
+.Chatroom {
+  display: flex;
+  flex-direction: column;
+  font-family: "Futura";
+  font-size: 12px;
+  height: 50vh;
+  width: 40%;
+  border: solid 3px #ed3192;
+  border-radius: 30px;
+  background-color: white;
+  overflow-y: scroll;
+  padding: 0;
+  /* overflow: auto; */
+}
+
+.ChatroomMessages {
+  padding: 5px;
+  overflow: auto;
+}
+
+.IndividualMessage {
+  margin-bottom: 15px;
+  margin-left: calc(95% - 240px);
+  padding: 3px;
+  background-color: rgba(237, 49, 146, 0.75);
+  width: 40%;
+  height: auto;
+  text-align: left;
+  border-radius: 30px;
+}
+
+.IndividualMessage.MessageTimeStamp {
+  justify-content: flex-start;
+  font-size: 0.85em;
+  font-weight: 300;
+  padding: 3px;
+  bottom: 5px;
+  left: 5px;
+}
+
+.IndividualMessage.fromMyself {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding: 3px;
+  background-color: rgba(74, 48, 110, 0.75);
+  width: 40%;
+  height: auto;
+  text-align: left;
+  border-radius: 30px;
+}
+
+.IndividualMessage .fromMyself .MessageTimeStamp {
+  position: absolute;
+  font-size: 0.85em;
+  font-weight: 300;
+  bottom: 5px;
+  right: 5px;
+}
+
+.StickyInput {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  bottom: 0;
+}
+
+.AddNewPropForm {
+  margin-top: 0.75em;
+  padding: 2em;
 }

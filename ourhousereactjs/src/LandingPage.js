@@ -2,7 +2,6 @@ import React from "react";
 import Illustration from "./media/OurHouseIllustration.png";
 import logo from "./media/OurHouse.png";
 import { Link } from "@reach/router";
-
 import './LandingPage.css'
 
 const LandingPage = () => {

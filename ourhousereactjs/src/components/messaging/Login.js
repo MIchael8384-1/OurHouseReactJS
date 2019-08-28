@@ -6,6 +6,8 @@ import logo from "../../media/OurHouse.png";
 import emailicon from "../../media/email.png";
 import lockicon from "../../media/lock.png";
 import nameicon from "../../media/name.png";
+import { navigate } from "@reach/router";
+import ls from "local-storage";
 
 import './login.css'
 
@@ -67,13 +69,16 @@ class Login extends Component {
     email: "",
     password: "",
     userName: "",
+    help: false,
     err: null
   };
 
   render() {
     const { email, password, userName } = this.state;
+    console.log("rendering in login");
     return (
-      <div className="login-page">
+      //<div className="login-page">
+      <div className="LoginBackground">
         <Link to="/">
           <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>
         </Link>
@@ -89,7 +94,7 @@ class Login extends Component {
           <Input2
             id="password"
             placeholder="Enter your password..."
-            type="text"
+            type="password"
             onChange={this.onChange}
             value={password}
           />
@@ -121,12 +126,12 @@ class Login extends Component {
   logIn = e => {
     const { email, password, userName } = this.state;
     e.preventDefault();
+    ls.set("Email", email);
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(this.setState({ email: "", password: "" }))
       .then(({ user: { uid } }) => {
-        // speak to beautiful soup
         db.collection("Users")
           .where("user_id", "==", uid)
           .where("username", "==", userName)
@@ -135,10 +140,10 @@ class Login extends Component {
             const data = querySnapshot.docs.map(doc => doc.data());
             this.props.setStateWithUsername(data[0].username);
           });
-      })
-      .catch(err => {
-        this.setState({ err });
       });
+    navigate(`/landlordpropertydetails`).catch(err => {
+      this.setState({ err });
+    });
   };
 }
 

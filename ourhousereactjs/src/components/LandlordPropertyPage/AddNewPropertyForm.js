@@ -13,7 +13,7 @@ class AddNewPropertyForm extends Component {
   render() {
     const { PropertyName, Address, RentDueDate, RentAmount } = this.state;
     return (
-      <div>
+      <div className="AddNewPropForm">
         <h1>Add a new property: </h1>
         <form onSubmit={this.handleSubmit}>
           <h3>Property name: </h3>

@@ -2,12 +2,13 @@ import React from "react";
 
 const Message = ({ message, createdAt, username }) => {
   const postedDate = new Date(createdAt).toString();
+  const fromMyself = username == "soupcan" ? "fromMyself" : "";
   return (
-    <div className="box">
+    <div className={`IndividualMessage ${fromMyself}`}>
       <ol>
-        <h6>{message}</h6>
-        <h6>{username}</h6>
-        <h6>{postedDate.split("+")[0]}</h6>
+        <ul>{message}</ul>
+        <ul>{username}</ul>
+        <ul className="MessageTimeStamp">{postedDate.split("GMT")[0]}</ul>
       </ol>
     </div>
   );
