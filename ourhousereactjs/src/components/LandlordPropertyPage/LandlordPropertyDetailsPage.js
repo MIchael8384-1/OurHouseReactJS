@@ -27,8 +27,7 @@ class LandlordPropertyDetailsPage extends Component {
   }
 
   fetchProperties = () => {
-    const Username = ls.get("currentUsername");
-    return API.getProperties(Username)
+    return API.getProperties()
       .then(properties => {
         console.log(properties);
         const filteredProperties = properties.filter(property => {
