@@ -38,16 +38,16 @@
 
 .issue-btn:hover {
     color: #202129;
-    background-color: #e1e2e2;
+    background-color: #ee4ea0;
     opacity: 1;
 }
 
-.issue-btn:active {
+/* .issue-btn:active {
     background-color: #d5d6d6;
     opacity: 1;
-}
+} */
 
-.issue-btn-container {
+#issue-btn-container {
     display: flex;
     margin: 0px;
     flex-wrap: wrap;
@@ -55,28 +55,8 @@
 }
 
 .issue-form {
-
-    display: flex;
-    align-self: center;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
     margin: 0px 60px;
-
-
     font-family: 'Montserrat', sans-serif;
-}
-
-.issue-area-and-submit {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-}
-
-.issue-item {
-    outline-color: transparent;
-    outline-style: none;
-    justify-content: flex-start;
 }
 
 .issue-input {
@@ -85,7 +65,6 @@
     height: 3rem;
     width: 25rem;
     font-size: 1rem;
-
 }
 
 .issue-input-description {
@@ -94,11 +73,45 @@
     height: 9rem;
 }
 
-textarea,
-select,
-input,
-button {
+textarea, select, input, button {
     outline: none;
     outline-style: none;
     border: none;
+}
+
+.issue-row {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+}
+
+.row-item {
+    width: 30%;
+    text-align: left;
+}
+
+.row-item-issue_desc {
+    width: 40%;
+}
+
+.issue-btn.selected {
+    background-color: #ED3192;
+}
+
+.issue-btn.select-area {
+    margin: 0;
+    width: 9rem;
+}
+
+.issue-btn.submit {
+    margin-left: 0;
+    margin-top: 4.5rem;
+    width: 9rem;
+    height: 3rem;
+    color: #fff;
+    background-color: #4A306E;
+}
+
+.newIssue-page h1 {
+    text-align: center;
 }

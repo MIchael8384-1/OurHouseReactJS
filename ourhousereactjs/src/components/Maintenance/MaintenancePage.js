@@ -20,7 +20,7 @@ class MaintenancePage extends Component {
         issue_id: 2,
         name: "damp on ceiling",
         location: "1F",
-        desc: "Fucking hell Jeremy this has been here for a month"
+        desc: "damp behind the sofa also"
       }
     ],
     
