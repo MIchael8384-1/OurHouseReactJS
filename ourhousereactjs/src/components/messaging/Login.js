@@ -9,6 +9,8 @@ import nameicon from "../../media/name.png";
 import { navigate } from "@reach/router";
 import ls from "local-storage";
 
+import './login.css'
+
 const Input = styled.input`
   padding-left: 35px;
   border: 1px solid rgba(237, 49, 146, 1);
@@ -75,6 +77,7 @@ class Login extends Component {
     const { email, password, userName } = this.state;
     console.log("rendering in login");
     return (
+      //<div className="login-page">
       <div className="LoginBackground">
         <Link to="/">
           <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>

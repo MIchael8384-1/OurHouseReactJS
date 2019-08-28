@@ -2,12 +2,11 @@ import React from "react";
 import Illustration from "./media/OurHouseIllustration.png";
 import logo from "./media/OurHouse.png";
 import { Link } from "@reach/router";
-import "./LandingPage.css";
-
+import './LandingPage.css'
 
 const LandingPage = () => {
   return (
-    <div className="LandingpageBackground">
+    <div className="landing-page">
       <Link to="/login">
         <img className="OurHouseLogo2" src={logo} alt="Our House Logo" />
       </Link>

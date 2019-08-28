@@ -1,15 +1,15 @@
-.App {
-    font-family: "Futura";
-}
-
 .OurHouseLogo {
-  display: flex;
-  justify-content: center;
-  margin-left: 32%;
-  margin-right: 25%;
+    display: flex;
+    justify-content: center;
+    margin-left: 32%;
+    margin-right: 25%;
+    margin-top: 0%;
+    width: 35%;
+    height: 35%;
+/*
   margin-top: 5%;
   width: 37%;
-  height: 37%;
+  height: 37%;*/
 }
 
 .OurHouseLogo2 {
@@ -31,13 +31,13 @@ img .OurHouseLogo2:hover {
 }
 
 .SignupText {
-  display: grid;
-  justify-items: center;
-  font-size: 25px;
-  color: white;
-  margin-bottom: 40px;
-  margin-top: 30px;
-  font-family: "Futura";
+    display: grid;
+    justify-items: center;
+    font-size: 25px;
+    color: white;
+    margin-bottom: 40px;
+    margin-top: 30px;
+    font-family: "Futura";
 }
 
 .ExistingUserSignin {
@@ -80,8 +80,10 @@ img .OurHouseLogo2:hover {
 }
 
 body {
-  background-color: #4a306e;
+    background-color: #F4F7F6;
 }
+  /*background-color: #4a306e;
+}*/
 
 ol {
   padding: 0;

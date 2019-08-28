@@ -1,7 +1,9 @@
 .header {
-  padding: 12px;
-  background-color: #4a306e;
-  position: fixed;
+    padding: 12px;
+    background-color: #4A306E;
+    //font-family: 'Montserrat', sans-serif;
+    font-family: "Futura";
+    position: fixed;
   top: 0;
   width: 99%;
   overflow: hidden;
@@ -38,18 +40,15 @@
 /*  all below to be moved to app.css */
 
 body {
-  background-color: #ffffff;
-  font-family: "Futura";
-  margin: 0;
+    font-weight: 300;
+    margin: 0;
+  /*background-color: #ffffff;
+  font-family: "Futura";*/
 }
 
 a {
   color: #ffffff;
   text-decoration: none;
-}
-
-.a:hover {
-  color: grey;
 }
 
 ul {

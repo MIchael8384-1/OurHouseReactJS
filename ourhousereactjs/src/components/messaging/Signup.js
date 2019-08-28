@@ -6,6 +6,7 @@ import logo from "../../media/OurHouse.png";
 import emailicon from "../../media/email.png";
 import lockicon from "../../media/lock.png";
 import nameicon from "../../media/name.png";
+import './signup.css'
 import { navigate } from "@reach/router";
 
 const Input = styled.input`
@@ -102,7 +103,7 @@ class Signup extends Component {
     console.log("inside signup");
     const { email, password, userName, firstName, lastName } = this.state;
     return (
-      <>
+      <div className="signup-page">
         <Link to="/">
           <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>
         </Link>
@@ -145,7 +146,7 @@ class Signup extends Component {
           />
           <Button onClick={this.signUp}>CREATE ACCOUNT</Button>
         </div>
-      </>
+      </div>
     );
   }
 

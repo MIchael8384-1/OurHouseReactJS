@@ -44,8 +44,6 @@
 .preview-item .preview-issue-card-footer {
     border-top: 1px solid #e6eaea;
     padding-top: 5px;
-    display: flex;
-    justify-content: space-between;
     font-size: 12px;
     font-weight: 400;
     width: 100%;
@@ -54,7 +52,10 @@
 }
 
 .preview-item .preview-issue-card-footer .author {
-    width: 80%;
+    width: 80%
 }
 
-.add-issue {}
+.preview-issue-card-footer {
+    text-align: center;
+    font-weight: 700;
+}
