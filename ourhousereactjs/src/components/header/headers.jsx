@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "@reach/router";
+import { Link, navigate } from "@reach/router";
 import logo from "../../media/OurHouse.png";
 import "./header.css";
 import fire from "../config/fire";
@@ -36,8 +36,8 @@ class Header extends React.Component {
           </Link>
           <div>
             <Button onClick={this.logOut}>LOG OUT</Button>
-            <Link to="/messaging" className="option">
-              MESSAGING
+            <Link to="/dashboard" className="option">
+              DASHBOARD
             </Link>
             <Link to="/maintenance" className="option">
               MAINTENANCE
@@ -50,6 +50,9 @@ class Header extends React.Component {
   logOut = e => {
     fire.auth().signOut();
     ls.clear();
+    navigate(`/`).catch(err => {
+      this.setState({ err });
+    });
   };
 }
 
