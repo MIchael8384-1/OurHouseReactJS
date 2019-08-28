@@ -103,7 +103,8 @@ class Chatroom extends React.Component {
       .collection("messages")
       .add({ username: currentUser, msg, createdAt })
       .then(this.setState({ msg: "", createdAt: "" }))
-      .catch(err => this.setState({ err }));
+      .catch(err => this.setState({ err }))
+      .then(this.setState({ fromMe: true }));
   };
 
   returnMessages() {
