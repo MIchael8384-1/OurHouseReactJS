@@ -16,5 +16,13 @@
 .maintenance-page {
     background-color: #F4F7F6;
     font-family: 'Montserrat', sans-serif;
-    ;
+}
+
+.maintenance-page h1 {
+    text-align: center;
+}
+
+.maintenance-subtext {
+    text-align: center;
+    margin-bottom: 2rem;
 }

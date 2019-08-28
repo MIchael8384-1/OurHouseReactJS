@@ -2,10 +2,15 @@ import React from "react";
 
 import './currentIssueCard.css'
 
-const CurrentIssueCard = ({desc,issue_id,location,name}) => {
+
+const CurrentIssueCard = ({desc,issue_id,location,name, imageUrl}) => {
+  
+  const style = {
+    backgroundImage: `url(${imageUrl})`
+  };
   return (
     <article className="preview-item">
-      <div className="preview-issue-card-header" /*style={style}*/ />
+      <div className="preview-issue-card-header" style={style}/>
   
       <div className="preview-card-body">
         
@@ -17,13 +22,10 @@ const CurrentIssueCard = ({desc,issue_id,location,name}) => {
         </div>
       </div>
       <div className="preview-issue-card-footer">
-          <span className="preview-issue-id">
-            #<b>{issue_id}</b>
-          </span>
+        <span>
+        #{issue_id}
+        </span>
       </div>
-      <div className="add-issue">
-      </div>
-
     </article>
 
   );
