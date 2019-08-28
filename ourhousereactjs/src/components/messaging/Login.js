@@ -7,6 +7,7 @@ import emailicon from "../../media/email.png";
 import lockicon from "../../media/lock.png";
 import nameicon from "../../media/name.png";
 import { navigate } from "@reach/router";
+import ls from "local-storage";
 
 const Input = styled.input`
   padding-left: 35px;
@@ -122,6 +123,7 @@ class Login extends Component {
   logIn = e => {
     const { email, password, userName } = this.state;
     e.preventDefault();
+    ls.set("Email", email);
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
