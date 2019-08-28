@@ -51,10 +51,6 @@ class AddNewPropertyForm extends Component {
     );
   }
 
-  componentDidMount() {
-    this.setState({ Username: ls.get("currentUsername") });
-  }
-
   handleSubmit = event => {
     event.preventDefault();
     this.postProperty();
@@ -67,8 +63,8 @@ class AddNewPropertyForm extends Component {
   };
 
   postProperty = () => {
+    const Username = ls.get('currentUsername')
     const {
-      Username,
       PropertyName,
       Address,
       RentDueDate,

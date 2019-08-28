@@ -1,64 +1,66 @@
 import React, { Component } from "react";
 import CurrentIssueCard from "./CurrentIssueCard";
 import { Link } from "@reach/router";
-import images from './images'
+import images from "./images";
+import * as API from "../../api";
 
-import './maintenance.css'
-import './maintenance-btn.css'
+import "./maintenance.css";
+import "./maintenance-btn.css";
 
 class MaintenancePage extends Component {
   state = {
     user: null,
     houseID: null,
-    currentIssues: [
-      {
-        issue_id: 1,
-        name: "Stain on sofa",
-        location: "1D",
-        desc: "there is a big ass stain on the sofa arm"
-      },
-      {
-        issue_id: 2,
-        name: "damp on ceiling",
-        location: "1F",
-        desc: "damp behind the sofa also"
-      }
-    ],
-    
+    currentIssues: []
   };
 
   render() {
-  return (
-    <div className="maintenance-page">
-      <h1 className="maintenance-title">Maintenance</h1>
-      <p className="maintenance-subtext">Here is a list of your current issues, be sure to message your landlord when you have uploaded a new issue!</p>
+    return (
+      <div className="maintenance-page">
+        <h1 className="maintenance-title">Maintenance</h1>
+        <p className="maintenance-subtext">
+          Here is a list of your current issues, be sure to message your
+          landlord when you have uploaded a new issue!
+        </p>
         <h2>Current issues</h2>
-      <div className="maintenance-current-issues">
-        
-          {this.state.currentIssues.map((issue,i) => {
+        <div className="maintenance-current-issues">
+          {this.state.currentIssues.map((issue, i) => {
             return (
               <CurrentIssueCard
-                key={issue.issue_id}
-                issue_id={issue.issue_id}
-                {...issue}
+                key={issue.Id}
+                issue_id={issue.Id}
+                name={issue.Issue}
+                desc={issue.Description}
+                location={issue.SelectedArea}
+                room={issue.SelectedRoom}
                 imageUrl={images[i]}
               />
             );
           })}
-          
-          
-       
+        </div>
+        <div className="add-item">
+          <Link to="/maintenance/newissue" className="add-item-btn">
+            add item
+          </Link>
+        </div>
       </div>
-      <div className="add-item">
-       
-      <Link to="/maintenance/newissue"className="add-item-btn">add item</Link>
-      </div>
-    
-    </div>
-  );
-}
+    );
+  }
+
+  componentDidMount() {
+    this.fetchMaintenance();
+  }
+
+  fetchMaintenance = () => {
+    return API.getMaintenance()
+      .then(issues => {
+        const filteredIssues = issues.filter(issue => {
+          return issue.Email === ls.get("Email");
+        });
+        this.setState({ currentIssues: filteredIssues });
+      })
+      .catch(console.log);
+  };
 }
 
 export default MaintenancePage;
-
-
