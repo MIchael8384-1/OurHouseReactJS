@@ -4,12 +4,11 @@
     margin-left: 32%;
     margin-right: 25%;
     margin-top: 0%;
-    width: 35%;
-    height: 35%;
-/*
-  margin-top: 5%;
+  padding-top: 40px;
+
+  /* margin-top: 5%; */
   width: 37%;
-  height: 37%;*/
+  height: 37%;
 }
 
 .OurHouseLogo2 {
@@ -24,10 +23,6 @@
 
 img .OurHouseLogo2:hover {
     cursor: pointer;
-}
-
-.LoginBackground {
-  background-color: #4a306e;
 }
 
 .SignupText {
