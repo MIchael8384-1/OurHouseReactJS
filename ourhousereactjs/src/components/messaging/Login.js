@@ -77,8 +77,7 @@ class Login extends Component {
     const { email, password, userName } = this.state;
     console.log("rendering in login");
     return (
-      //<div className="login-page">
-      <div className="LoginBackground">
+      <div className="login-page">
         <Link to="/">
           <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>
         </Link>

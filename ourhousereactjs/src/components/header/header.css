@@ -1,7 +1,7 @@
 .header {
     padding: 12px;
     background-color: #4A306E;
-    //font-family: 'Montserrat', sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
     font-family: "Futura";
     position: fixed;
   top: 0;
@@ -19,7 +19,7 @@
 }
 
 .header .option {
-  margin: 5px;
+  margin-right: 20px;
   top: 50%;
 }
 
