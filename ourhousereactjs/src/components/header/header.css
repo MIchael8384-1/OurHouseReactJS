@@ -1,54 +1,58 @@
 .header {
-    padding: 12px;
-    background-color: #4A306E;
+  padding: 12px;
+  background-color: #4a306e;
+  position: fixed;
+  top: 0;
+  width: 99%;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .header .nav-bar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 2rem;
 }
 
 .header .option {
-    margin: 5px;
-    top: 50%;
+  margin: 5px;
+  top: 50%;
 }
 
 .header .option:hover {
-    cursor: pointer;
-    color: #ED3192;
+  cursor: pointer;
+  color: #ed3192;
 }
 
 .header .our-house-btn {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .header .our-house-btn:hover {
-    cursor: pointer;
-    color: #ED3192;
+  cursor: pointer;
+  color: #ed3192;
 }
 
 /*  all below to be moved to app.css */
 
 body {
-    background-color: #F4F7F6;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    margin: 0;
+  background-color: #ffffff;
+  font-family: "Futura";
+  margin: 0;
 }
 
 a {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
 }
 
 .a:hover {
-    color: grey;
+  color: grey;
 }
 
 ul {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }

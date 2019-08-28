@@ -74,7 +74,7 @@ class Login extends Component {
     const { email, password, userName } = this.state;
     console.log("rendering in login");
     return (
-      <>
+      <div className="LoginBackground">
         <Link to="/">
           <img className="OurHouseLogo" src={logo} alt="Our House Logo"></img>
         </Link>
@@ -90,7 +90,7 @@ class Login extends Component {
           <Input2
             id="password"
             placeholder="Enter your password..."
-            type="text"
+            type="password"
             onChange={this.onChange}
             value={password}
           />
@@ -110,7 +110,7 @@ class Login extends Component {
             <button className="SigninButton">Sign up </button>
           </Link>
         </div>
-      </>
+      </div>
     );
   }
 

@@ -1,27 +1,56 @@
 import React from "react";
 import { Link } from "@reach/router";
+import logo from "../../media/OurHouse.png";
 import "./header.css";
+import fire from "../config/fire";
+import ls from "local-storage";
+import styled from "styled-components";
 
-const Header = () => {
-  return (
-    <div className="header">
-      <nav className="nav-bar">
+const Button = styled.button`
+  background: rgba(74, 48, 110, 1);
+  color: rgba(237, 49, 146, 1);
+  cursor: pointer;
+  color: white;
+  border: none;
+  margin: 5px;
+  top: 50%;
+  font-family: "Futura";
+  font-size: 16px;
+  :hover {
+    cursor: pointer;
+    color: #ed3192;
+  }
+`;
 
-      <Link to="/" className="our-house-btn">
-          OurHouse
-        </Link>
-
-        <div>
-          <Link to="/messaging" className="option">
-            MESSAGING
+class Header extends React.Component {
+  render() {
+    return (
+      <div className="header">
+        <nav className="nav-bar">
+          <Link to="/" className="our-house-btn">
+            <img
+              src={logo}
+              alt="our house logo"
+              style={{ width: "7em", height: "3.5em", marginTop: "3px" }}
+            />
           </Link>
-          <Link to="/maintenance" className="option">
-            MAINTENANCE
-          </Link>
-        </div>
-      </nav>
-    </div>
-  );
-};
+          <div>
+            <Button onClick={this.logOut}>LOG OUT</Button>
+            <Link to="/messaging" className="option">
+              MESSAGING
+            </Link>
+            <Link to="/maintenance" className="option">
+              MAINTENANCE
+            </Link>
+          </div>
+        </nav>
+      </div>
+    );
+  }
+  logOut = e => {
+    fire.auth().signOut();
+    ls.clear();
+  };
+}
 
 export default Header;

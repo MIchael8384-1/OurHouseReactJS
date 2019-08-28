@@ -8,8 +8,8 @@
   margin-left: 32%;
   margin-right: 25%;
   margin-top: 5%;
-  width: 35%;
-  height: 35%;
+  width: 37%;
+  height: 37%;
 }
 
 .OurHouseLogo2 {
@@ -20,11 +20,14 @@
   margin-top: 5%;
   width: 35%;
   height: 35%;
-  position: absolute;
 }
 
 img .OurHouseLogo2:hover {
   cursor: pointer;
+}
+
+.LoginBackground {
+  background-color: #4a306e;
 }
 
 .SignupText {
@@ -84,9 +87,11 @@ ol {
   padding: 0;
   margin-left: 5px;
 }
+
 ul {
   padding: 0;
 }
+
 .Chatroom {
   display: flex;
   flex-direction: column;
@@ -101,10 +106,12 @@ ul {
   padding: 0;
   /* overflow: auto; */
 }
+
 .ChatroomMessages {
   padding: 5px;
   overflow: auto;
 }
+
 .IndividualMessage {
   margin-bottom: 15px;
   margin-left: calc(95% - 240px);
@@ -115,6 +122,7 @@ ul {
   text-align: left;
   border-radius: 30px;
 }
+
 .IndividualMessage.MessageTimeStamp {
   justify-content: flex-start;
   font-size: 0.85em;
@@ -123,6 +131,7 @@ ul {
   bottom: 5px;
   left: 5px;
 }
+
 .IndividualMessage.fromMyself {
   margin-left: 20px;
   margin-bottom: 10px;
@@ -133,6 +142,7 @@ ul {
   text-align: left;
   border-radius: 30px;
 }
+
 .IndividualMessage .fromMyself .MessageTimeStamp {
   position: absolute;
   font-size: 0.85em;
@@ -140,9 +150,15 @@ ul {
   bottom: 5px;
   right: 5px;
 }
+
 .StickyInput {
   display: flex;
   justify-content: center;
   position: sticky;
   bottom: 0;
+}
+
+.AddNewPropForm {
+  margin-top: 0.75em;
+  padding: 2em;
 }
