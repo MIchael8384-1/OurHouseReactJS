@@ -13,6 +13,7 @@ import NewIssue from "./components/newIssue/NewIssue";
 import LandlordPropertyDetailsPage from "./components/LandlordPropertyPage/LandlordPropertyDetailsPage";
 import LandingPage from "./LandingPage";
 import Signup from "./components/messaging/Signup";
+import Header2 from "./components/header/Header2";
 
 class App extends Component {
   state = {
@@ -25,7 +26,7 @@ class App extends Component {
     const { user, username } = this.state;
     return (
       <>
-        <Header></Header>
+        {username ? <Header /> : <Header2 path="/" />}
         <Router>
           <LandingPage path="/" />
           {user ? (
