@@ -16,20 +16,7 @@ class MaintenancePage extends Component {
   state = {
     user: null,
     houseID: null,
-    currentIssues: [
-      {
-        issue_id: 1,
-        name: "Mould behind/ next to radiator",
-        location: "1D",
-        desc: "large patch of mould in kitchen"
-      },
-      {
-        issue_id: 2,
-        name: "stained tiles in utility",
-        location: "1F",
-        desc: "damaged tiles in utility room"
-      }
-    ]
+    currentIssues: []
   };
 
   render() {
@@ -45,11 +32,11 @@ class MaintenancePage extends Component {
           {this.state.currentIssues.map((issue, i) => {
             return (
               <CurrentIssueCard
-                key={issue.issue_id}
-                issue_id={issue.issue_id}
-                name={issue.name}
-                desc={issue.desc}
-                location={issue.location}
+                key={issue.Id}
+                issue_id={issue.Id}
+                name={issue.Issue}
+                desc={issue.Description}
+                location={issue.SelectedArea}
                 room={issue.SelectedRoom}
                 imageUrl={images[i]}
               />

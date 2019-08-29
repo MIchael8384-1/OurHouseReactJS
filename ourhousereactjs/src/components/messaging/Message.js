@@ -7,7 +7,7 @@ const Ul = styled.ul`
 
 const Message = ({ message, createdAt, username }) => {
   const postedDate = new Date(createdAt).toString();
-  const fromMyself = username == "soupcan" ? "fromMyself" : "";
+  const fromMyself = username === "soupcan" ? "fromMyself" : "";
   return (
     <div className={`IndividualMessage ${fromMyself}`}>
       <ol>

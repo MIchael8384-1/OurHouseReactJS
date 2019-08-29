@@ -75,7 +75,8 @@ class AddNewTenantForm extends Component {
       FirstName: "",
       Surname: "",
       RentAmount: 0,
-      TenancyExpires: ""
+      TenancyExpires: "",
+      Email: ""
     });
   };
 
