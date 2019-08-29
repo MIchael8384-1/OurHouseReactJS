@@ -2,16 +2,34 @@ import React, { Component } from "react";
 import CurrentIssueCard from "./CurrentIssueCard";
 import { Link } from "@reach/router";
 import images from "./images";
-import * as API from "../../api";
-
+import styled from "styled-components";
 import "./maintenance.css";
 import "./maintenance-btn.css";
+import * as API from "../../api";
+
+const H2 = styled.h2`
+  margin-left: 10px;
+`;
+
 
 class MaintenancePage extends Component {
   state = {
     user: null,
     houseID: null,
-    currentIssues: []
+    currentIssues: [
+      {
+        issue_id: 1,
+        name: "Mould behind/ next to radiator",
+        location: "1D",
+        desc: "large patch of mould in kitchen"
+      },
+      {
+        issue_id: 2,
+        name: "stained tiles in utility",
+        location: "1F",
+        desc: "damaged tiles in utility room"
+      }
+    ]
   };
 
   render() {
@@ -22,7 +40,8 @@ class MaintenancePage extends Component {
           Here is a list of your current issues, be sure to message your
           landlord when you have uploaded a new issue!
         </p>
-        <h2>Current issues</h2>
+      
+        <H2>Current issues</H2>
         <div className="maintenance-current-issues">
           {this.state.currentIssues.map((issue, i) => {
             return (
@@ -46,6 +65,7 @@ class MaintenancePage extends Component {
       </div>
     );
   }
+//}
 
   componentDidMount() {
     this.fetchMaintenance();

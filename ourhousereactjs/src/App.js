@@ -31,7 +31,7 @@ class App extends Component {
           <LandingPage path="/" />
           {user ? (
             <LandlordPropertyDetailsPage
-              path="/landlordpropertydetails"
+              path="/dashboard"
               username={username}
             />
           ) : (

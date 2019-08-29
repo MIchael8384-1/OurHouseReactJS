@@ -1,9 +1,9 @@
 .OurHouseLogo {
-    display: flex;
-    justify-content: center;
-    margin-left: 32%;
-    margin-right: 25%;
-    margin-top: 0%;
+  display: flex;
+  justify-content: center;
+  margin-left: 32%;
+  margin-right: 25%;
+  margin-top: 0%;
   padding-top: 40px;
 
   /* margin-top: 5%; */
@@ -22,62 +22,62 @@
 }
 
 img .OurHouseLogo2:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .SignupText {
-    display: grid;
-    justify-items: center;
-    font-size: 25px;
-    color: white;
-    margin-bottom: 40px;
-    margin-top: 30px;
-    font-family: "Futura";
+  display: grid;
+  justify-items: center;
+  font-size: 25px;
+  color: white;
+  margin-bottom: 40px;
+  margin-top: 30px;
+  font-family: "Futura";
 }
 
 .ExistingUserSignin {
-    display: flex;
-    justify-content: center;
-    font-family: "Futura";
-    font-style: italic;
-    color: white;
-    font-size: 20px;
-    margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  font-family: "Futura";
+  font-style: italic;
+  color: white;
+  font-size: 20px;
+  margin-top: 50px;
 }
 
 .SigninButton {
-    font-family: "Futura";
-    font-style: italic;
-    color: white;
-    font-size: 20px;
-    background-color: #4a306e;
-    border: none;
+  font-family: "Futura";
+  font-style: italic;
+  color: white;
+  font-size: 20px;
+  background-color: #4a306e;
+  border: none;
 }
 
 .SignupFormContainer {
-    display: flex;
-    align-self: center;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .EmailIconForm {
-    padding: 0.5em;
+  padding: 0.5em;
 }
 
 .PasswordIconForm {
-    padding: 0.5em;
+  padding: 0.5em;
 }
 
 .UserIconForm {
-    padding: 0.5em;
+  padding: 0.5em;
 }
 
 body {
-    background-color: #F4F7F6;
+  background-color: #f4f7f6;
 }
-  /*background-color: #4a306e;
+/*background-color: #4a306e;
 }*/
 
 ol {
@@ -101,6 +101,9 @@ ul {
   background-color: white;
   overflow-y: scroll;
   padding: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
   /* overflow: auto; */
 }
 

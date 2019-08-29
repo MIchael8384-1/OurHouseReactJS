@@ -70,7 +70,6 @@ class AddNewTenantForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    console.log(this.state);
     this.postTenant();
     this.setState({
       FirstName: "",

@@ -12,7 +12,7 @@ const Button = styled.button`
   cursor: pointer;
   color: white;
   border: none;
-  margin: 5px;
+  margin: 20px;
   top: 50%;
   font-family: "Futura";
   font-size: 16px;

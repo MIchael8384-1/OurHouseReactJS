@@ -1,45 +1,45 @@
 .issue-btn {
-    display: flex;
-    overflow: hidden;
-    margin: 10px;
-    padding: 12px 12px;
-    cursor: pointer;
-    user-select: none;
-    transition: all 150ms linear;
-    text-align: center;
-    white-space: nowrap;
-    text-decoration: none !important;
-    text-transform: none;
-    text-transform: capitalize;
-    background-color: #fff;
-    border: 0 none;
-    border-radius: 4px;
-    font-size: 13px;
-    font-weight: 500;
-    line-height: 1.3;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    justify-content: center;
-    align-items: center;
-    flex: 0 0 160px;
-    box-shadow: 2px 5px 10px var(--color-smoke);
+  display: flex;
+  overflow: hidden;
+  margin: 10px;
+  padding: 12px 12px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 150ms linear;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none !important;
+  text-transform: none;
+  text-transform: capitalize;
+  background-color: #fff;
+  border: 0 none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.3;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 160px;
+  box-shadow: 2px 5px 10px var(--color-smoke);
 }
 
 .issue-btn:hover {
-    transition: all 150ms linear;
-    opacity: 0.85;
+  transition: all 150ms linear;
+  opacity: 0.85;
 }
 
 .issue-btn:active {
-    transition: all 150ms linear;
-    opacity: 0.75;
+  transition: all 150ms linear;
+  opacity: 0.75;
 }
 
 .issue-btn:hover {
-    color: #202129;
-    background-color: #ee4ea0;
-    opacity: 1;
+  color: #202129;
+  background-color: #ee4ea0;
+  opacity: 1;
 }
 
 /* .issue-btn:active {
@@ -48,70 +48,73 @@
 } */
 
 #issue-btn-container {
-    display: flex;
-    margin: 0px;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+  display: flex;
+  margin: 0px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
 }
 
 .issue-form {
-    margin: 0px 60px;
-    font-family: 'Montserrat', sans-serif;
+  margin: 0px 60px;
+  font-family: "Futura";
 }
 
 .issue-input {
-    outline: none;
-    border-radius: 4px;
-    height: 3rem;
-    width: 25rem;
-    font-size: 1rem;
+  outline: none;
+  border-radius: 4px;
+  height: 3rem;
+  width: 25rem;
+  font-size: 1rem;
 }
 
 .issue-input-description {
-    width: 25rem;
-    font-size: 1rem;
-    height: 9rem;
+  width: 25rem;
+  font-size: 1rem;
+  height: 9rem;
 }
 
-textarea, select, input, button {
-    outline: none;
-    outline-style: none;
-    border: none;
+textarea,
+select,
+input,
+button {
+  outline: none;
+  outline-style: none;
+  border: none;
 }
 
 .issue-row {
-    display: flex;
-    flex-direction: row;
-    flex-flow: wrap;
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
 }
 
 .row-item {
-    width: 30%;
-    text-align: left;
+  width: 30%;
+  text-align: left;
 }
 
 .row-item-issue_desc {
-    width: 40%;
+  width: 40%;
 }
 
 .issue-btn.selected {
-    background-color: #ED3192;
+  background-color: #ed3192;
 }
 
 .issue-btn.select-area {
-    margin: 0;
-    width: 9rem;
+  margin: 0;
+  width: 9rem;
 }
 
 .issue-btn.submit {
-    margin-left: 0;
-    margin-top: 4.5rem;
-    width: 9rem;
-    height: 3rem;
-    color: #fff;
-    background-color: #4A306E;
+  margin-left: 0;
+  margin-top: 4.5rem;
+  width: 9rem;
+  height: 3rem;
+  color: #fff;
+  background-color: #ed3192;
 }
 
 .newIssue-page h1 {
-    text-align: center;
+  text-align: center;
 }

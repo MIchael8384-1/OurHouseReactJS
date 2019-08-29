@@ -9,7 +9,7 @@ import nameicon from "../../media/name.png";
 import { navigate } from "@reach/router";
 import ls from "local-storage";
 
-import './login.css'
+import "./login.css";
 
 const Input = styled.input`
   padding-left: 35px;
@@ -75,7 +75,6 @@ class Login extends Component {
 
   render() {
     const { email, password, userName } = this.state;
-    console.log("rendering in login");
     return (
       <div className="login-page">
         <Link to="/">
@@ -140,7 +139,7 @@ class Login extends Component {
             this.props.setStateWithUsername(data[0].username);
           });
       });
-    navigate(`/landlordpropertydetails`).catch(err => {
+    navigate(`/dashboard`).catch(err => {
       this.setState({ err });
     });
   };
