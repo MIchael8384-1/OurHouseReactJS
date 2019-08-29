@@ -6,7 +6,7 @@ import logo from "../../media/OurHouse.png";
 import emailicon from "../../media/email.png";
 import lockicon from "../../media/lock.png";
 import nameicon from "../../media/name.png";
-import './signup.css'
+import "./signup.css";
 import { navigate } from "@reach/router";
 
 const Input = styled.input`
@@ -100,7 +100,6 @@ class Signup extends Component {
   };
 
   render() {
-    console.log("inside signup");
     const { email, password, userName, firstName, lastName } = this.state;
     return (
       <div className="signup-page">

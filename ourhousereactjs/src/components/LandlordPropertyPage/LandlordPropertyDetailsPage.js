@@ -12,7 +12,7 @@ class LandlordPropertyDetailsPage extends Component {
 
   render() {
     return (
-      <>
+      <div className="DashboardGrid">
         <AddNewPropertyForm username={this.props.username} />
         {this.state.properties ? (
           <PropertiesDropdown propertyArray={this.state.properties} />
@@ -20,7 +20,7 @@ class LandlordPropertyDetailsPage extends Component {
           <p>Loading</p>
         )}
         <Chatroom />
-      </>
+      </div>
     );
   }
 
