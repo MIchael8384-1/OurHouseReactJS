@@ -118,7 +118,7 @@ class Signup extends Component {
           <Input2
             id="password"
             placeholder="Enter your password..."
-            type="text"
+            type="password"
             onChange={this.onChange}
             value={password}
           />
@@ -177,7 +177,7 @@ class Signup extends Component {
           lastName: ""
         })
       );
-    navigate(`/landlordpropertydetails`).catch(err => {
+    navigate(`/dashboard`).catch(err => {
       this.setState({ err });
     });
   };
