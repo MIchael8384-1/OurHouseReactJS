@@ -5,6 +5,8 @@ import images from "./images";
 import styled from "styled-components";
 import "./maintenance.css";
 import "./maintenance-btn.css";
+import * as API from "../../api";
+import ls from "local-storage";
 
 const H2 = styled.h2`
   margin-left: 10px;
@@ -45,7 +47,10 @@ class MaintenancePage extends Component {
               <CurrentIssueCard
                 key={issue.issue_id}
                 issue_id={issue.issue_id}
-                {...issue}
+                name={issue.name}
+                desc={issue.desc}
+                location={issue.SelectedArea}
+                room={issue.SelectedRoom}
                 imageUrl={images[i]}
               />
             );
@@ -59,6 +64,22 @@ class MaintenancePage extends Component {
       </div>
     );
   }
+  //}
+
+  componentDidMount() {
+    this.fetchMaintenance();
+  }
+
+  fetchMaintenance = () => {
+    return API.getMaintenance()
+      .then(issues => {
+        const filteredIssues = issues.filter(issue => {
+          return issue.Email === ls.get("Email");
+        });
+        this.setState({ currentIssues: filteredIssues });
+      })
+      .catch(console.log);
+  };
 }
 
 export default MaintenancePage;
