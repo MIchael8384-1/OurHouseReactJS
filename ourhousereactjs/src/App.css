@@ -162,3 +162,13 @@ ul {
   margin-top: 0.75em;
   padding: 2em;
 }
+
+.DonutChart {
+  margin-top: 6em;
+  margin-right: 11em;
+  width: 20em;
+  height: 20em;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
