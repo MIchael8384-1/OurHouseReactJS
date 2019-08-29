@@ -101,7 +101,7 @@ ul {
   background-color: white;
   overflow-y: scroll;
   padding: 0;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   /* overflow: auto; */
@@ -168,7 +168,7 @@ ul {
   margin-right: 11em;
   width: 20em;
   height: 20em;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
 }

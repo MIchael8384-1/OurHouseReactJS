@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const H2 = styled.h2`
   margin-top: 3em;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   margin-right: 11.5em;
@@ -12,7 +12,7 @@ const H2 = styled.h2`
 
 const H1 = styled.h1`
   margin-top: 7.3em;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   margin-right: 8.5em;

@@ -60,7 +60,9 @@ class AddNewPropertyForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.postProperty();
+    this.postProperty().then(() => {
+      this.props.updateProperties();
+    });
     this.setState({
       PropertyName: "",
       Address: "",
