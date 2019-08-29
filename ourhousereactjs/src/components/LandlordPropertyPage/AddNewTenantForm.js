@@ -78,14 +78,16 @@ class AddNewTenantForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    this.postTenant();
+    this.postTenant().then(() => {
+      this.props.fetchTenants();
+    })
     this.setState({
-      FirstName: "",
-      Surname: "",
-      RentAmount: 0,
-      TenancyExpires: "",
-      Email: ""
-    });
+        FirstName: "",
+        Surname: "",
+        RentAmount: 0,
+        TenancyExpires: "",
+        Email: ""
+      });
   };
 
   postTenant = () => {

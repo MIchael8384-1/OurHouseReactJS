@@ -36,7 +36,7 @@ class SelectedProperty extends Component {
           {dateLookup[RentDueDate.slice(-1)]} of each month
         </p>
         <p>Rent amount is: £{RentAmount}.00 per month</p>
-        <AddNewTenantForm Address={Address} />
+        <AddNewTenantForm Address={Address} fetchTenants={this.fetchTenants} />
         {this.state.tenantArray ? (
           <TenantDropdown tenantArray={this.state.tenantArray} />
         ) : (
@@ -47,6 +47,10 @@ class SelectedProperty extends Component {
   }
 
   componentDidMount() {
+    this.fetchTenants();
+  }
+
+  fetchTenants = () => {
     API.getTenants()
       .then(tenants => {
         const filteredTenants = tenants.filter(tenant => {

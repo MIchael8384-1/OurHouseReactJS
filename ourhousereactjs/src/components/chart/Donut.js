@@ -2,20 +2,20 @@ import React from "react";
 import DonutChart from "react-svg-donut-chart";
 import styled from "styled-components";
 
-const H2 = styled.h2`
-  margin-top: 3em;
+const H3 = styled.h3`
+  margin-top: 5em;
   position: fixed;
   top: 0;
   right: 0;
-  margin-right: 11.5em;
+  margin-right: 12.5em;
 `;
 
-const H1 = styled.h1`
-  margin-top: 7.3em;
+const H4 = styled.h4`
+  margin-top: 12em;
   position: fixed;
   top: 0;
   right: 0;
-  margin-right: 8.5em;
+  margin-right: 15em;
 `;
 
 const donutData = [
@@ -25,8 +25,8 @@ const donutData = [
 
 const Donut = () => (
   <>
-    <H2>Rent due:</H2>
-    <H1>12 days</H1>
+    <H3>Rent due:</H3>
+    <H4>12 days</H4>
     <div className="DonutChart">
       <DonutChart data={donutData} spacing={2.3} />
     </div>
