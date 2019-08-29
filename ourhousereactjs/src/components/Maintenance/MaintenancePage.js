@@ -40,6 +40,7 @@ class MaintenancePage extends Component {
           Here is a list of your current issues, be sure to message your
           landlord when you have uploaded a new issue!
         </p>
+
         <H2>Current issues</H2>
         <div className="maintenance-current-issues">
           {this.state.currentIssues.map((issue, i) => {
@@ -65,6 +66,7 @@ class MaintenancePage extends Component {
     );
   }
   //}
+
 
   componentDidMount() {
     this.fetchMaintenance();
