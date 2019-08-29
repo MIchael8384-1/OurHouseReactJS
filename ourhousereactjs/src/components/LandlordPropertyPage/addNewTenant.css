@@ -1,0 +1,15 @@
+.addNewTenant-input {
+  outline: none;
+  border-radius: 4px;
+  height: 2.5rem;
+  width: 25rem;
+  font-size: 1rem;
+}
+.issue-btn.addNewTenant-submit {
+    margin-left: 0;
+    margin-top: 1.3rem;
+    width: 9rem;
+    height: 3rem;
+    color: #fff;
+    background-color: #ed3192;
+}

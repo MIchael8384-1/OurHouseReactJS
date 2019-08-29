@@ -54,7 +54,7 @@ class Chatroom extends React.Component {
       <>
         <div className="Chatroom">
           <div className="ChatroomMessages">
-            <H4> 1 Federation House</H4>
+            <H4>Property Chatroom</H4>
             {messageData
               ? messageData.map(data => (
                   <Message

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SelectedProperty from "./SelectedProperty";
-
+import { navigate } from "@reach/router";
 import "./propertiesDropDown.css";
 
 class PropertiesDropdown extends Component {
@@ -38,7 +38,9 @@ class PropertiesDropdown extends Component {
     this.setState({
       selectedOption: event.target.value
     });
+    // navigate("/addtenant");
   };
+
 }
 
 export default PropertiesDropdown;

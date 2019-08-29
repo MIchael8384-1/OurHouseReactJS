@@ -60,12 +60,6 @@ class TenantPropertyDetails extends Component {
             <button>Log an issue</button>
           </Link>
         </p>
-        <p>
-          Need to message your landlord?{" "}
-          <Link to="/messaging">
-            <button>Message your landlord </button>
-          </Link>
-        </p>
       </div>
     ) : (
       <p>Loading...</p>

@@ -15,7 +15,10 @@ class LandlordPropertyDetailsPage extends Component {
   render() {
     return ls.get("currentUsername") === "soupcan" ? (
       <div className="DashboardGrid">
-        <AddNewPropertyForm username={this.props.username} />
+        <AddNewPropertyForm
+          username={this.props.username}
+          updateProperties={this.updateProperties}
+        />
         {this.state.properties ? (
           <PropertiesDropdown propertyArray={this.state.properties} />
         ) : (
@@ -25,13 +28,20 @@ class LandlordPropertyDetailsPage extends Component {
         <Chatroom />
       </div>
     ) : (
-      <TenantPropertyDetails />
+      <>
+        <TenantPropertyDetails />
+        <Donut />
+        <Chatroom />
+      </>
     );
   }
 
   componentDidMount() {
     this.fetchProperties();
   }
+
+  // componentDidUpdate(prevProps, prevState) {}
+  // }
 
   fetchProperties = () => {
     return API.getProperties()
@@ -44,6 +54,11 @@ class LandlordPropertyDetailsPage extends Component {
         this.setState({ properties: filteredProperties });
       })
       .catch(console.log);
+  };
+
+  updateProperties = () => {
+    console.log("HI");
+    this.fetchProperties();
   };
 }
 

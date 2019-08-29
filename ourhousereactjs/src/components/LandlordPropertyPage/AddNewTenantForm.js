@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import * as API from "../../api";
+
+import './addNewTenant.css'
+
 class AddNewTenantForm extends Component {
   state = {
     selectedTenant: null,
@@ -28,6 +31,7 @@ class AddNewTenantForm extends Component {
             name="FirstName"
             value={FirstName}
             onChange={this.handleChange}
+            className="addNewTenant-input"
           />
           <h3>Last name: </h3>
           <input
@@ -35,6 +39,7 @@ class AddNewTenantForm extends Component {
             name="Surname"
             value={Surname}
             onChange={this.handleChange}
+            className="addNewTenant-input"
           />
           <h3>Email address</h3>
           <input
@@ -42,6 +47,7 @@ class AddNewTenantForm extends Component {
             name="Email"
             value={Email}
             onChange={this.handleChange}
+            className="addNewTenant-input"
           />
           <h3>Rent amount: </h3>
           <input
@@ -49,6 +55,7 @@ class AddNewTenantForm extends Component {
             name="RentAmount"
             value={RentAmount}
             onChange={this.handleChange}
+            className="addNewTenant-input"
           />
           <h3>When does the tenancy expire: </h3>
           <input
@@ -56,9 +63,10 @@ class AddNewTenantForm extends Component {
             name="TenancyExpires"
             value={TenancyExpires}
             onChange={this.handleChange}
+            className="addNewTenant-input"
           />
           <br />
-          <input type="submit" />
+          <input type="submit" className="issue-btn addNewTenant-submit" />
         </form>
       </div>
     );

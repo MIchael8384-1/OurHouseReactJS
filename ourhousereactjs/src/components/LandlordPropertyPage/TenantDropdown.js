@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import SelectedTenant from "./SelectedTenant";
 
+import './viewTenantsDropDown.css'
+
 class TenantDropdown extends Component {
   state = {
     selectedTenant: null
@@ -9,8 +11,9 @@ class TenantDropdown extends Component {
   render() {
     return (
       <div>
-        <h1>View current tenant: </h1>
-        <select onChange={this.handleChange}>
+        {console.log(this.props)}
+        <h1>View tenants: </h1>
+        <select onChange={this.handleChange} className="view-tenants-select">
           <option hidden disabled selected value>
             Select an option
           </option>
