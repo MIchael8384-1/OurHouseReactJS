@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import SelectedProperty from "./SelectedProperty";
 
+import "./propertiesDropDown.css";
+
 class PropertiesDropdown extends Component {
   state = {
     selectedOption: null
@@ -8,9 +10,9 @@ class PropertiesDropdown extends Component {
 
   render() {
     return (
-      <div>
-        <h1>View selected property: </h1>
-        <select onChange={this.handleChange}>
+      <div className="dashboard-view-property">
+        <h2>View selected property: </h2>
+        <select onChange={this.handleChange} className="view-property-select">
           <option hidden disabled selected value>
             Select an option
           </option>
