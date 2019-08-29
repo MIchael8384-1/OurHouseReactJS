@@ -8,6 +8,7 @@ import lockicon from "../../media/lock.png";
 import nameicon from "../../media/name.png";
 import "./signup.css";
 import { navigate } from "@reach/router";
+import ls from "local-storage";
 
 const Input = styled.input`
   padding-left: 35px;
@@ -157,6 +158,8 @@ class Signup extends Component {
   signUp = e => {
     const { email, password, userName, firstName, lastName } = this.state;
     e.preventDefault();
+    ls.set("Email", email);
+    ls.set("currentUsername", userName);
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)

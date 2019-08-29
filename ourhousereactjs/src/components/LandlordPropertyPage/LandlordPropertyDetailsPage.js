@@ -4,6 +4,7 @@ import PropertiesDropdown from "./PropertiesDropdown";
 import Chatroom from "../messaging/Chatroom";
 import * as API from "../../api";
 import ls from "local-storage";
+import TenantPropertyDetails from "../TenantPropertyDetails/TenantPropertyDetails";
 import Donut from "../chart/Donut";
 
 class LandlordPropertyDetailsPage extends Component {
@@ -12,7 +13,7 @@ class LandlordPropertyDetailsPage extends Component {
   };
 
   render() {
-    return (
+    return ls.get("currentUsername") === "soupcan" ? (
       <div className="DashboardGrid">
         <AddNewPropertyForm username={this.props.username} />
         {this.state.properties ? (
@@ -23,6 +24,8 @@ class LandlordPropertyDetailsPage extends Component {
         <Donut />
         <Chatroom />
       </div>
+    ) : (
+      <TenantPropertyDetails />
     );
   }
 
