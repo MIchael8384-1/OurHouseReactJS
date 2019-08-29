@@ -2,6 +2,38 @@ import React, { Component } from "react";
 import { Link } from "@reach/router";
 import * as API from "../../api";
 import ls from "local-storage";
+import styled from "styled-components"
+import "./tenantPropertyDetails.css"
+import housepic from "../../media/housepic.png"
+
+
+const H2 = styled.h2`
+margin-top: 4em;
+margin-left: 0.75em;
+margin-bottom: -0.1em`;
+
+const H4 = styled.h4`
+margin-left: 1.2em;
+margin-bottom: -0.1em`;
+
+const Img = styled.img`
+position: fixed;
+bottom: 0;
+left: 0;
+width: 30em;
+height: 22em;
+margin-left: 1.2em`;
+
+const Button = styled.button`
+  border-radius: 30px;
+  border: none;
+  color: white;
+  background-color: rgba(237, 49, 146, 1);
+  width: 6em;
+  height: 3em;
+  font-size: 10px;
+  font-family: Futura;
+`;
 
 class TenantPropertyDetails extends Component {
   state = {
@@ -42,10 +74,11 @@ class TenantPropertyDetails extends Component {
 
     return this.state.property ? (
       <div>
-        <h3>
+        <H2>
           {this.state.tenant.FirstName} {this.state.tenant.Surname}
-        </h3>
-        <h4>{this.state.property.PropertyName}</h4>
+        </H2>
+        <H4>{this.state.property.PropertyName}</H4>
+        <div className="TenantDetailsSection">
         <p>Your Address is: {this.state.tenant.Address}</p>
         <p>
           Your rent is due on: {this.state.property.RentDueDate}
@@ -57,10 +90,12 @@ class TenantPropertyDetails extends Component {
         <p>
           Need to log an issue?{" "}
           <Link to="/maintenance">
-            <button>Log an issue</button>
+            <Button>CLICK</Button>
           </Link>
         </p>
       </div>
+      <Img src={housepic} alt="a house"/>
+        </div>
     ) : (
       <p>Loading...</p>
     );

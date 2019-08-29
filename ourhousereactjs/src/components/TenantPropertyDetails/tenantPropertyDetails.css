@@ -5,3 +5,11 @@
     width: 25rem;
     font-size: 1rem;
 } */
+
+.TenantDetailsSection {
+    display: inline-block;
+    justify-content: center;
+    margin-left: 1.2em;
+    width: 40%;
+    /* background: white; */
+}
