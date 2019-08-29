@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import * as API from "../../api";
 import ls from "local-storage";
 
+import "./addNewProperty.css";
+
 class AddNewPropertyForm extends Component {
   state = {
     PropertyName: "",
@@ -13,41 +15,46 @@ class AddNewPropertyForm extends Component {
   render() {
     const { PropertyName, Address, RentDueDate, RentAmount } = this.state;
     return (
-      <div className="AddNewPropForm">
+      <form onSubmit={this.handleSubmit} className="AddNewPropForm">
         <h1>Add a new property: </h1>
-        <form onSubmit={this.handleSubmit}>
-          <h3>Property name: </h3>
-          <input
-            type="text"
-            name="PropertyName"
-            value={PropertyName}
-            onChange={this.handleChange}
-          />
-          <h3>Property Address: </h3>
-          <input
-            type="text"
-            name="Address"
-            value={Address}
-            onChange={this.handleChange}
-          />
-          <h3>Rent due date each month: </h3>
-          <input
-            type="text"
-            name="RentDueDate"
-            value={RentDueDate}
-            onChange={this.handleChange}
-          />
-          <h3>Rent amount per month: </h3>
-          <input
-            type="number"
-            name="RentAmount"
-            value={RentAmount}
-            onChange={this.handleChange}
-          />
-          <br />
-          <input type="submit" />
-        </form>
-      </div>
+        <h3>Property name: </h3>
+        <input
+          placeholder="1 Federation House"
+          type="text"
+          name="PropertyName"
+          value={PropertyName}
+          onChange={this.handleChange}
+          className="addProperty-input"
+        />
+        <h3>Property Address: </h3>
+        <input
+          placeholder="Federation House, Federation St, Manchester M4 2AH"
+          type="text"
+          name="Address"
+          value={Address}
+          onChange={this.handleChange}
+          className="addProperty-input"
+        />
+        <h3>Rent due date each month: </h3>
+        <input
+          placeholder="Rent is due on the 3rd of each month"
+          type="text"
+          name="RentDueDate"
+          value={RentDueDate}
+          onChange={this.handleChange}
+          className="addProperty-input"
+        />
+        <h3>Rent amount per month: </h3>
+        <input
+          placeholder="£395"
+          type="number"
+          name="RentAmount"
+          value={RentAmount}
+          onChange={this.handleChange}
+          className="addProperty-input"
+        />
+        <input type="submit" className="issue-btn prop-submit" />
+      </form>
     );
   }
 
@@ -63,13 +70,8 @@ class AddNewPropertyForm extends Component {
   };
 
   postProperty = () => {
-    const Username = ls.get('currentUsername')
-    const {
-      PropertyName,
-      Address,
-      RentDueDate,
-      RentAmount
-    } = this.state;
+    const Username = ls.get("currentUsername");
+    const { PropertyName, Address, RentDueDate, RentAmount } = this.state;
     const property = {
       Username,
       PropertyName,

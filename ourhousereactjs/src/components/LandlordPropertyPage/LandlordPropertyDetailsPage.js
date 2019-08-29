@@ -5,6 +5,7 @@ import Chatroom from "../messaging/Chatroom";
 import * as API from "../../api";
 import ls from "local-storage";
 import TenantPropertyDetails from "../TenantPropertyDetails/TenantPropertyDetails";
+import Donut from "../chart/Donut";
 
 class LandlordPropertyDetailsPage extends Component {
   state = {
@@ -20,6 +21,7 @@ class LandlordPropertyDetailsPage extends Component {
         ) : (
           <p>Loading</p>
         )}
+        <Donut />
         <Chatroom />
       </div>
     ) : (
