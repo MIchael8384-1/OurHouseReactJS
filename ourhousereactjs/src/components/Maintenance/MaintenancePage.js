@@ -6,11 +6,11 @@ import styled from "styled-components";
 import "./maintenance.css";
 import "./maintenance-btn.css";
 import * as API from "../../api";
+import ls from "local-storage";
 
 const H2 = styled.h2`
   margin-left: 10px;
 `;
-
 
 class MaintenancePage extends Component {
   state = {
@@ -40,16 +40,16 @@ class MaintenancePage extends Component {
           Here is a list of your current issues, be sure to message your
           landlord when you have uploaded a new issue!
         </p>
-      
+
         <H2>Current issues</H2>
         <div className="maintenance-current-issues">
           {this.state.currentIssues.map((issue, i) => {
             return (
               <CurrentIssueCard
-                key={issue.Id}
-                issue_id={issue.Id}
-                name={issue.Issue}
-                desc={issue.Description}
+                key={issue.issue_id}
+                issue_id={issue.issue_id}
+                name={issue.name}
+                desc={issue.desc}
                 location={issue.SelectedArea}
                 room={issue.SelectedRoom}
                 imageUrl={images[i]}
@@ -65,7 +65,8 @@ class MaintenancePage extends Component {
       </div>
     );
   }
-//}
+  //}
+
 
   componentDidMount() {
     this.fetchMaintenance();

@@ -1,40 +1,32 @@
 import React from "react";
 
-import './currentIssueCard.css'
+import "./currentIssueCard.css";
 
-
-const CurrentIssueCard = ({desc,issue_id,location,name, imageUrl}) => {
-  
+const CurrentIssueCard = ({ desc, issue_id, location, name, imageUrl }) => {
+  console.log(desc);
   const style = {
     backgroundImage: `url(${imageUrl})`
   };
   return (
     <article className="preview-item">
-      <div className="preview-issue-card-header" style={style}/>
-  
+      <div className="preview-issue-card-header" style={style} />
+
       <div className="preview-card-body">
-        
-          <h2 className="preview-issue-title">{name}</h2>
-       
+        <h2 className="preview-issue-title">{name}</h2>
+
         <div className="preview-issue-id">
-            <p>issueLocation: {location}</p>
-            <p className="preview-issue-desc">{desc}</p>
+          <p>issueLocation: {location}</p>
+          <p className="preview-issue-desc">{desc}</p>
         </div>
       </div>
       <div className="preview-issue-card-footer">
-        <span>
-        #{issue_id}
-        </span>
+        <span>#{issue_id}</span>
       </div>
     </article>
-
   );
-  
-  
 };
 
 export default CurrentIssueCard;
-
 
 // return (
 //   <li>
