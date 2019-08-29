@@ -49,7 +49,7 @@ class MaintenancePage extends Component {
                 issue_id={issue.issue_id}
                 name={issue.name}
                 desc={issue.desc}
-                location={issue.SelectedArea}
+                location={issue.location}
                 room={issue.SelectedRoom}
                 imageUrl={images[i]}
               />
