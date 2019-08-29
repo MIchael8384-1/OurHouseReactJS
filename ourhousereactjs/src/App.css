@@ -5,7 +5,6 @@
   margin-right: 25%;
   margin-top: 0%;
   padding-top: 40px;
-
   /* margin-top: 5%; */
   width: 37%;
   height: 37%;
@@ -77,6 +76,7 @@ img .OurHouseLogo2:hover {
 body {
   background-color: #f4f7f6;
 }
+
 /*background-color: #4a306e;
 }*/
 
@@ -164,10 +164,10 @@ ul {
 }
 
 .DonutChart {
-  margin-top: 6em;
+  margin-top: 7em;
   margin-right: 11em;
-  width: 20em;
-  height: 20em;
+  width: 12em;
+  height: 12em;
   position: fixed;
   top: 0;
   right: 0;
